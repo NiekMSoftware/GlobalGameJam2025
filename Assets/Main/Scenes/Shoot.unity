@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 372958961}
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
+  Velocity: 10
 --- !u!1 &372958959
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +314,6 @@ GameObject:
   - component: {fileID: 372958961}
   - component: {fileID: 372958960}
   - component: {fileID: 372958962}
-  - component: {fileID: 372958963}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -418,20 +418,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &372958963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372958959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff5349759d6c3844a9612e3a6171a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FirePoint: {fileID: 372958961}
-  BulletPrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
