@@ -75,8 +75,6 @@ namespace Bubble.Utils
 
         public void OnBasic_Attack(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
-                BasicAttackEvent?.Invoke();
         }
         public void OnJump(InputAction.CallbackContext context)
         {
@@ -102,7 +100,8 @@ namespace Bubble.Utils
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            throw new NotImplementedException();
+            if (context.phase == InputActionPhase.Performed)
+                BasicAttackEvent?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
