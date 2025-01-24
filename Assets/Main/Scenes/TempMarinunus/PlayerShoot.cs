@@ -14,6 +14,7 @@ namespace Bubble
         void Start() 
         {
             //Shoot();
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         private void Update()
@@ -23,10 +24,9 @@ namespace Bubble
 
             direction = Quaternion.Euler(0, 0, 0) * FirePoint.up;
 
-           // transform.LookAt(Camera.main.ScreenToWorldPoint(), Vector3.back);
-
-            // transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back);
-            // transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
+            //transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector2(0,2)), Vector3.back);
+            FirePoint.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back);
+            FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
         }
 
         private void Shoot()
