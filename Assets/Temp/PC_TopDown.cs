@@ -1,3 +1,4 @@
+using Bubble.Utils;
 using UnityEngine;
 
 namespace Bubble.Temp
@@ -5,22 +6,35 @@ namespace Bubble.Temp
     [RequireComponent(typeof(Rigidbody2D))]
     public class PC_TopDown : MonoBehaviour
     {
-        private Vector2 input;
         private Rigidbody2D rb;
-
+        private Vector2 input;
+        private PlayerInput playerInput;
+        
         public float speed;
         [Range(1f, 15f)] public float maxVelocity = 10f;
         [Range(0.1f, 1f)] public float dragForce;
+
+        private void OnEnable()
+        {
+            playerInput = GetComponent<PlayerInput>();
+            
+            playerInput.MoveEvent += RetrieveMovement;
+        }
+
+        private void OnDisable()
+        {
+            playerInput.MoveEvent -= RetrieveMovement;
+        }
+
+        private void OnDestroy()
+        {
+            playerInput.MoveEvent -= RetrieveMovement;
+        }
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             rb.gravityScale = 0;
-        }
-
-        private void Update()
-        {
-            GetMovement();
         }
 
         private void FixedUpdate()
@@ -40,9 +54,9 @@ namespace Bubble.Temp
             rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxVelocity);
         }
         
-        private void GetMovement()
+        private void RetrieveMovement(Vector2 i)
         {
-            input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            input = i;
         }
     }
 }
