@@ -26,7 +26,7 @@ namespace Bubble
 
             //transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector2(0,2)), Vector3.back);
             FirePoint.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back);
-            FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
+            FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z - 180);
         }
 
         private void Shoot()
