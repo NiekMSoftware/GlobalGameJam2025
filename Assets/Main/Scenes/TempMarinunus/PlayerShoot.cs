@@ -17,10 +17,16 @@ namespace Bubble
         }
 
         private void Update()
-        { 
-            if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0)) 
+                Shoot();
 
             direction = Quaternion.Euler(0, 0, 0) * FirePoint.up;
+
+           // transform.LookAt(Camera.main.ScreenToWorldPoint(), Vector3.back);
+
+            // transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back);
+            // transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
         }
 
         private void Shoot()
