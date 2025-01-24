@@ -14,13 +14,19 @@ namespace Bubble
         void Start() 
         {
             //Shoot();
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         private void Update()
-        { 
-            if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0)) 
+                Shoot();
 
             direction = Quaternion.Euler(0, 0, 0) * FirePoint.up;
+
+            //transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector2(0,2)), Vector3.back);
+            FirePoint.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.back);
+            FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
         }
 
         private void Shoot()

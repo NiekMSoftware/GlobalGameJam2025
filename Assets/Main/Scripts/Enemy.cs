@@ -11,6 +11,7 @@ namespace Bubble
         [SerializeField] private Vector2 dashDir;
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
+        [SerializeField] private float deathDelay = 1;
 
         private float dashTimer;
         private bool isDashing;
@@ -22,10 +23,25 @@ namespace Bubble
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            print("Gaming");
             if (collision.CompareTag("Bullet"))
             {
+                print("More Gaming");
                 Dash();
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                Invoke(nameof(Death), deathDelay);
+            }
+        }
+
+        private void Death()
+        {
+            Destroy(gameObject);
         }
 
         private void Update()
@@ -38,16 +54,16 @@ namespace Bubble
 
                 if (dashTimer <= 0)
                 {
+                    print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
                 }
             }
 
-            //if (Input.GetKeyDown(KeyCode.E))
-            //{
-            //    isDashing = true;
-            //    Dash();
-            //}
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Dash();
+            }
         }
 
         private void FixedUpdate()
@@ -64,12 +80,15 @@ namespace Bubble
 
         private void Dash()
         {
+            isDashing = true;
             print("Dash!");
             rb.linearVelocity = dashDir * dashForce;
         }
 
         private void Movement()
         {
+            if (!target) return;
+
             Vector3 moveDir = target.position - transform.position;
 
             //moveDir.Normalize();

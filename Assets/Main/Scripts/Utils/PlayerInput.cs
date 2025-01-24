@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Bubble.Utils
 {
-    public class PlayerInput : MonoBehaviour ,PlayerInputActions.IPlayerActions, PlayerInputActions.IUIActions
+    public class PlayerInput : MonoBehaviour, PlayerInputActions.IPlayerActions, PlayerInputActions.IUIActions
     {
         private PlayerInputActions _inputSystem;
         private PlayerInputActions.PlayerActions _playerActions;
@@ -14,7 +14,7 @@ namespace Bubble.Utils
         //When an input event is called these are called afterwards
         public event Action JumpEvent;
         public event Action JumpCancelledEvent;
-        public event Action BasicAttackEvent;
+        public event Action AttackEvent;
         public event Action PauseEvent;
         public event Action<Vector2> MoveEvent;
         public event Action<Vector2> LookEvent;
@@ -73,11 +73,6 @@ namespace Bubble.Utils
                 LookEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
-        public void OnBasic_Attack(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                BasicAttackEvent?.Invoke();
-        }
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
@@ -98,11 +93,6 @@ namespace Bubble.Utils
                 PauseEvent?.Invoke();
                 EnableUIActions();
             }
-        }
-
-        public void OnAttack(InputAction.CallbackContext context)
-        {
-            throw new NotImplementedException();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
@@ -176,6 +166,11 @@ namespace Bubble.Utils
         public void OnUIOnRightClickEvent()
         {
             UIOnRightClickEvent?.Invoke();
+        }
+
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            AttackEvent?.Invoke();
         }
     }
 }
