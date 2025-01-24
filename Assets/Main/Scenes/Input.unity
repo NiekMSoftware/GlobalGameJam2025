@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 1857408141}
   - component: {fileID: 1857408144}
   - component: {fileID: 1857408143}
+  - component: {fileID: 1857408145}
   m_Layer: 0
   m_Name: P
   m_TagString: Untagged
@@ -1751,6 +1752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  maxVelocity: 10
   dragForce: 0.438
 --- !u!50 &1857408144
 Rigidbody2D:
@@ -1779,6 +1781,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1857408145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857408140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b33ae2abdb5040bb40efc5732fc0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2011830119
 GameObject:
   m_ObjectHideFlags: 0
