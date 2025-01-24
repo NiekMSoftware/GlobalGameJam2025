@@ -9,6 +9,7 @@ namespace Bubble.Temp
         private Rigidbody2D rb;
 
         public float speed;
+        [Range(0.1f, 1f)] public float dragForce;
 
         private void Start()
         {
@@ -23,7 +24,19 @@ namespace Bubble.Temp
 
         private void FixedUpdate()
         {
-            rb.AddForce(input * speed, ForceMode2D.Force);
+            if (input == Vector2.zero)
+            {
+                rb.linearVelocity -= rb.linearVelocity.normalized * dragForce;
+                if (rb.linearVelocity.magnitude < 0.1f)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                }
+
+                return;
+            }
+            
+            rb.AddForce(input * speed, ForceMode2D.Impulse);
+            rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, 10f);
         }
         
         private void GetMovement()
