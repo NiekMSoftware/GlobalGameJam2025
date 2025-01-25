@@ -23,7 +23,7 @@ namespace Bubble
         {
             base.OnTriggerEnter2D(collision);
 
-            if (collision.CompareTag("Bullet"))
+            if (collision.CompareTag("Bullet") && !collision.GetComponent<Projectile>().hasHitEnemy)
             {
                 Dash();
             }
@@ -33,7 +33,8 @@ namespace Bubble
         {
             base.OnCollisionEnter2D(collision);
             
-            if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet)
+            if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet 
+                && !collision.gameObject.GetComponent<Projectile>().hasHitEnemy)
             {
                 Invoke(nameof(Death), deathDelay);
             }

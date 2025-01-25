@@ -34,6 +34,8 @@ namespace Bubble
             projectileScript.isEnemyBullet = isEnemy;
             Rigidbody2D ProjectileRB = Projectile.GetComponent<Rigidbody2D>();
             ProjectileRB.AddForce(direction * Velocity, ForceMode2D.Impulse);
+
+            projectileScript.Owner = gameObject;
         }
 
         protected bool MayShoot()
