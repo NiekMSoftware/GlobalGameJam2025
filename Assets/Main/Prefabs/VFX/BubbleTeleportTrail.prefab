@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8297289667262541890}
   - component: {fileID: 3123122007129687795}
   m_Layer: 0
-  m_Name: BubbleDashEffect
+  m_Name: BubbleTeleportTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.25
-      minScalar: 0.2
+      scalar: 0.8
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:

@@ -131,26 +131,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1857408142}
-    - target: {fileID: 126470373833314669, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
-      propertyPath: isEnemy
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 527404937734757642, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_Name
       value: TP_Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 527404937734757642, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: melee
       value: 
       objectReference: {fileID: 1526434756}
-    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
-      propertyPath: meleeCooldown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5886784817980510171, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.86
@@ -362,6 +350,18 @@ PrefabInstance:
       propertyPath: melee
       value: 
       objectReference: {fileID: 1526434756}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: TPLineEffect
+      value: 
+      objectReference: {fileID: 5117922653777725540, guid: 013abfd1bf6fbe4469778dca42dd787b, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: a529b62d27c83bb488da2cdee936f24f, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: vulnerableSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: 31b7b1a3ee4782144807c23c16e261b7, type: 3}
     - target: {fileID: 5886784817980510171, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.83
@@ -1269,6 +1269,18 @@ PrefabInstance:
       propertyPath: melee
       value: 
       objectReference: {fileID: 1526434756}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: TPLineEffect
+      value: 
+      objectReference: {fileID: 5117922653777725540, guid: 013abfd1bf6fbe4469778dca42dd787b, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: a529b62d27c83bb488da2cdee936f24f, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: vulnerableSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: 31b7b1a3ee4782144807c23c16e261b7, type: 3}
     - target: {fileID: 5886784817980510171, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.9
@@ -2031,6 +2043,18 @@ PrefabInstance:
       propertyPath: melee
       value: 
       objectReference: {fileID: 1526434756}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: TPLineEffect
+      value: 
+      objectReference: {fileID: 5117922653777725540, guid: 013abfd1bf6fbe4469778dca42dd787b, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: a529b62d27c83bb488da2cdee936f24f, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: vulnerableSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: 31b7b1a3ee4782144807c23c16e261b7, type: 3}
     - target: {fileID: 5886784817980510171, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.6
@@ -2249,6 +2273,18 @@ PrefabInstance:
       propertyPath: melee
       value: 
       objectReference: {fileID: 1526434756}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: TPLineEffect
+      value: 
+      objectReference: {fileID: 5117922653777725540, guid: 013abfd1bf6fbe4469778dca42dd787b, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: a529b62d27c83bb488da2cdee936f24f, type: 3}
+    - target: {fileID: 5179248889329413873, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
+      propertyPath: vulnerableSprite
+      value: 
+      objectReference: {fileID: -9136834448258697486, guid: 31b7b1a3ee4782144807c23c16e261b7, type: 3}
     - target: {fileID: 5886784817980510171, guid: 71370e78c186b7b41b28a4971bafa36e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.9
@@ -2333,6 +2369,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4684612459045457991, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6258054761608175344, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_Name
       value: Enemy

@@ -45,6 +45,7 @@ namespace Bubble
 
         private void Death()
         {
+            if (spawnedDashEffect) Destroy(spawnedDashEffect);
             Destroy(gameObject);
         }
 

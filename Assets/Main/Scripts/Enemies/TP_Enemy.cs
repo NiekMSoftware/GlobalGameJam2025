@@ -10,6 +10,14 @@ namespace Bubble.Enemies
         [SerializeField] private float tpCooldown;
         [SerializeField] private Melee melee;
         [SerializeField] private float meleeCooldown;
+        [SerializeField] private GameObject TPEffect;
+        [SerializeField] private GameObject TPLineEffect;
+        [SerializeField] private Sprite normalSprite;
+        [SerializeField] private Sprite vulnerableSprite;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+
+        private GameObject currentTP;
+        private GameObject currentTPLine;
 
         private float meleeTimer;
         private bool meleeTimerStart;
@@ -36,10 +44,15 @@ namespace Bubble.Enemies
             
             if (_teleporting)
             {
+                spriteRenderer.sprite = vulnerableSprite;
+
                 print("Teleporting");
                 _tpTimer -= Time.deltaTime;
                 if (_tpTimer <= 0)
                 {
+                    spriteRenderer.sprite = normalSprite;
+                    Destroy(currentTP);
+                    Destroy(currentTPLine);
                     _teleporting = false;
                     _tpTimer = tpCooldown;
                 }
@@ -79,12 +92,21 @@ namespace Bubble.Enemies
         
         private void TeleportBehindTarget(Transform pos)
         {
+            if (currentTP) Destroy(currentTP);
+            if (currentTPLine) Destroy(currentTPLine);
+
+            currentTP = Instantiate(TPEffect, transform.position, Quaternion.identity);
+
             meleeTimer = meleeCooldown;
             meleeTimerStart = true;
 
             Vector2 firePointPosition = pos.position;
             Vector2 backDirection = pos.right * teleportationRange;
-            
+
+            var angle = Mathf.Atan2(backDirection.y, backDirection.x) * Mathf.Rad2Deg;
+
+            currentTPLine = Instantiate(TPLineEffect, transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+
             Vector2 newPos = firePointPosition + backDirection;
             transform.position = newPos;
         }
