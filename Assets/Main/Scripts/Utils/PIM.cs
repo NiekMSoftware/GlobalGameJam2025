@@ -27,7 +27,7 @@ namespace Bubble.Utils
         public event Action UIOnSubmitEvent;
         public event Action UIOnCancelEvent;
         public event Action UIOnRightClickEvent;
-        private bool KeyboardActive = true;
+        public bool KeyboardActive = true;
 
         void Update()
         {
@@ -95,7 +95,7 @@ namespace Bubble.Utils
                 }
                 else if (!KeyboardActive)
                 {
-                    LookEvent?.Invoke(context.ReadValue<Vector2>() * 800);
+                    LookEvent?.Invoke(context.ReadValue<Vector2>());
                 }
         }
 

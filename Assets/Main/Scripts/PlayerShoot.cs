@@ -1,12 +1,16 @@
 using Bubble.Utils;
+using System;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace Bubble
 {
     public class PlayerShoot : BaseScripieShooting
     {
+        public RectTransform cursor;
+
         public Transform FirePoint;
         public Transform ShootPoint;
         public CameraShake cameraShake;
@@ -15,12 +19,13 @@ namespace Bubble
 
         private PIM pWayerInpUWUt;
 
+        Vector3 lookTarget;
+
         private float LookInputX, LookInputY;
 
         void Start() 
         {
             //pWayerInpUWUt = GetComponentInParent<PlayerInput>();
-
             // Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -30,13 +35,17 @@ namespace Bubble
             base.Update();
 
             direction = Quaternion.Euler(0, 0, 0) * -FirePoint.right;
-            
-            Vector3 lookTarget = new(LookInputX, LookInputY, FirePoint.position.z);
-            
-            FirePoint.LookAt(Camera.main.ScreenToWorldPoint(lookTarget), Vector3.back);
-            FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
-        }
+            lookTarget = new(LookInputX, LookInputY, FirePoint.position.z);
 
+            //Rotate with mouse or with controller input 
+            if (pWayerInpUWUt.KeyboardActive)
+                FirePoint.LookAt(Camera.main.ScreenToWorldPoint(lookTarget), Vector3.back);
+            else 
+                FirePoint.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(LookInputX, -LookInputY) * Mathf.Rad2Deg);
+
+            // Optional adjustment to align FirePoint visually
+            FirePoint.localEulerAngles += new Vector3(0, 0, 90);
+        }
 
         private void Look(Vector2 obj)
         {
