@@ -4,7 +4,9 @@ using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
-    private float BulletLifeTime = 3f;
+    public bool isEnemyBullet;
+
+    [SerializeField] private float BulletLifeTime = 3f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

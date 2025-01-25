@@ -3,19 +3,16 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class PlayerShoot : MonoBehaviour
+    public class PlayerShoot : BaseScripieShooting
     {
-        public Transform FirePoint;
-        public GameObject BulletPrefab;
-        public float Velocity = 100;
         public CameraShake cameraShake;
+        public float cameraShakeLength = 0.5f;
+        public float cameraShakeIntensity =  0.5f;
 
-        private Vector2 direction;
         private PIM pWayerInpUWUt;
 
         private float LookInputX, LookInputY;
 
-        private Rigidbody2D ProjectileRB;
         void Start() 
         {
             //pWayerInpUWUt = GetComponentInParent<PlayerInput>();
@@ -23,11 +20,13 @@ namespace Bubble
         }
 
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
+
             direction = Quaternion.Euler(0, 0, 0) * -FirePoint.right;
             
-            Vector3 lookTarget = new Vector3(LookInputX, LookInputY, FirePoint.position.z);
+            Vector3 lookTarget = new(LookInputX, LookInputY, FirePoint.position.z);
             
             FirePoint.LookAt(Camera.main.ScreenToWorldPoint(lookTarget), Vector3.back);
             FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
@@ -40,17 +39,19 @@ namespace Bubble
             LookInputY = obj.y;
         }
 
-        private void Shoot()
+        protected override void Shoot()
         {
-            GameObject Projectile = Instantiate(BulletPrefab, FirePoint.position, Quaternion.identity);
-            ProjectileRB = Projectile.GetComponent<Rigidbody2D>();
-            ProjectileRB.AddForce(direction * Velocity, ForceMode2D.Impulse);
+            if (!MayShoot()) return;
 
-            cameraShake.Shake(3, 1);
+            base.Shoot();
+
+            cameraShake.Shake(cameraShakeLength, cameraShakeIntensity);
         }
 
-        private void OnEnable()// Subscribe function to events
+        protected override void OnEnable()// Subscribe function to events
         {
+            base.OnEnable();
+
             pWayerInpUWUt = GetComponentInParent<PIM>();
 
             pWayerInpUWUt.BasicAttackEvent += Shoot;

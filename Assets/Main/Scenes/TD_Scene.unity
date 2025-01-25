@@ -888,8 +888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 425920845}
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
-  Velocity: 50
+  Velocity: 200
+  ShootingCooldown: 1
   cameraShake: {fileID: 2082892826}
+  cameraShakeLength: 0.5
+  cameraShakeIntensity: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
