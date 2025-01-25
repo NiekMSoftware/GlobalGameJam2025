@@ -889,6 +889,7 @@ MonoBehaviour:
   FirePoint: {fileID: 425920845}
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
   Velocity: 50
+  cameraShake: {fileID: 2082892826}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2515,7 @@ GameObject:
   - component: {fileID: 2082892825}
   - component: {fileID: 2082892824}
   - component: {fileID: 2082892823}
+  - component: {fileID: 2082892826}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: Untagged
@@ -2610,6 +2612,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082892826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082892822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236f7ba31a5fd5940bd3d2a77dfea752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  intensity: 0
 --- !u!1 &2129601455
 GameObject:
   m_ObjectHideFlags: 0

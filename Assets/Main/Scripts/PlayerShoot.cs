@@ -8,6 +8,7 @@ namespace Bubble
         public Transform FirePoint;
         public GameObject BulletPrefab;
         public float Velocity = 100;
+        public CameraShake cameraShake;
 
         private Vector2 direction;
         private PIM pWayerInpUWUt;
@@ -44,6 +45,8 @@ namespace Bubble
             GameObject Projectile = Instantiate(BulletPrefab, FirePoint.position, Quaternion.identity);
             ProjectileRB = Projectile.GetComponent<Rigidbody2D>();
             ProjectileRB.AddForce(direction * Velocity, ForceMode2D.Impulse);
+
+            cameraShake.Shake(3, 1);
         }
 
         private void OnEnable()// Subscribe function to events
