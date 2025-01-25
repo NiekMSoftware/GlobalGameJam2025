@@ -55,11 +55,6 @@ namespace Bubble
                     isDashing = false;
                 }
             }
-
-            // if (Input.GetKeyDown(KeyCode.E))
-            // {
-            //     Dash();
-            // }
         }
 
         protected override void FixedUpdate()

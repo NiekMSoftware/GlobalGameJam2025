@@ -1,11 +1,9 @@
-using Bubble.Temp;
 using UnityEngine;
 
 namespace Bubble.Enemies
 {
     public class TP_Enemy : GenericAhEnemy
     {
-        [SerializeField] private Transform playerFirePoint;
         [SerializeField] private float teleportationRange;
         [SerializeField] private float tpCooldown;
 
