@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5886784817980510171
 Transform:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDir: {fileID: 5982447202324308563}
   target: {fileID: 0}
-  fieldOfView: 0
-  socialDistance: 0
+  fieldOfView: 100
+  socialDistance: 5
   moveSpeed: 3
   maxSpeed: 7
   playerFirePoint: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
   Velocity: 1
   ShootingCooldown: 1
   mayShootAtStart: 0
-  isEnemy: 0
+  isEnemy: 1
   target: {fileID: 0}
 --- !u!1 &1320486980478124565
 GameObject:

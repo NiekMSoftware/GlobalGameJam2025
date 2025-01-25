@@ -47,11 +47,13 @@ namespace Bubble.Enemies
 
             if (meleeTimerStart)
             {
+                print("Start");
                 meleeTimer -= Time.deltaTime;
 
                 if (meleeTimer <= 0)
                 {
-                    melee.MeleeAttack();
+                    print("Before: " + transform.position);
+                    //melee.MeleeAttack();
                     meleeTimerStart = false;
                     meleeTimer = meleeCooldown;
                 }

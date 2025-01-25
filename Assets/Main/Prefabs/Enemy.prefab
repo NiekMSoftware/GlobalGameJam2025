@@ -204,6 +204,7 @@ MonoBehaviour:
   dashForce: 30
   dashTime: 1
   deathDelay: 0.1
+  dashEffect: {fileID: 0}
 --- !u!114 &7522933448424990677
 MonoBehaviour:
   m_ObjectHideFlags: 0

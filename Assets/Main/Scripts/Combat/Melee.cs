@@ -22,7 +22,7 @@ namespace Bubble
         {
             if (spawnedMeleeEffect) Destroy(spawnedMeleeEffect);
 
-            print(transform.position);
+            print(gameObject.transform.position);
             spawnedMeleeEffect = Instantiate(MeleeEffect, transform.position, Quaternion.identity);
             spawnedMeleeEffect.transform.position = transform.position;
             Physics.CheckBox(transform.position, MeleeSize, Quaternion.identity);
