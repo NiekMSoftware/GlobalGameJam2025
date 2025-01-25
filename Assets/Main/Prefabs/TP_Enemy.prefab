@@ -168,16 +168,8 @@ MonoBehaviour:
   socialDistance: 5
   moveSpeed: 3
   maxSpeed: 7
-  playerFirePoint: {fileID: 0}
   teleportationRange: 5
   tpCooldown: 1.5
-  melee: {fileID: 0}
-  meleeCooldown: 1
-  TPEffect: {fileID: 5117922653777725540, guid: 365694cb58aa5fc4faaa2bbbd46e4236, type: 3}
-  TPLineEffect: {fileID: 5117922653777725540, guid: 013abfd1bf6fbe4469778dca42dd787b, type: 3}
-  normalSprite: {fileID: -9136834448258697486, guid: a529b62d27c83bb488da2cdee936f24f, type: 3}
-  vulnerableSprite: {fileID: -9136834448258697486, guid: 31b7b1a3ee4782144807c23c16e261b7, type: 3}
-  spriteRenderer: {fileID: 6475405142153973359}
 --- !u!114 &2682806162166138737
 MonoBehaviour:
   m_ObjectHideFlags: 0

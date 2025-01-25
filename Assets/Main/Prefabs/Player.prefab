@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7498856135141749785}
   - component: {fileID: 9038520761822508252}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   ShootingCooldown: 1
   mayShootAtStart: 1
   isEnemy: 0
-  FirePoint: {fileID: 7498856135141749785}
+  Transform: {fileID: 0}
   ShootPoint: {fileID: 1778193218279164320}
   cameraShake: {fileID: 0}
   cameraShakeLength: 0.5
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 953435153108221139}
   - component: {fileID: 314288611019082397}
   - component: {fileID: 4893800579475861162}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38941c9520b60104192ae2dd2708adfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyboardActive: 1
 --- !u!114 &314288611019082397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778193218279164320}
   - component: {fileID: 5091472676671219625}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
