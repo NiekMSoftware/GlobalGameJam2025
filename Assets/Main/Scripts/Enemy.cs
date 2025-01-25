@@ -69,6 +69,8 @@ namespace Bubble
 
         protected override void FixedUpdate()
         {
+            if (!IsTargetInView()) return;
+            
             if (!isDashing)
             {
                 MoveToTarget();
