@@ -27,7 +27,6 @@ namespace Bubble
 
         protected virtual void Shoot()
         {
-            print("Shooting go brr");
             shootingTimer = ShootingCooldown;
             GameObject Projectile = Instantiate(BulletPrefab, shootPos, Quaternion.identity);
             Projectile projectileScript = Projectile.GetComponent<Projectile>();

@@ -8,7 +8,12 @@ namespace Bubble.Enemies
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private float teleportationRange;
         [SerializeField] private float tpCooldown;
+        [SerializeField] private Melee melee;
+        [SerializeField] private float meleeCooldown;
 
+        private float meleeTimer;
+        private bool meleeTimerStart;
+        
         private float _tpTimer;
         private bool _teleporting;
 
@@ -39,6 +44,18 @@ namespace Bubble.Enemies
                     _tpTimer = tpCooldown;
                 }
             }
+
+            if (meleeTimerStart)
+            {
+                meleeTimer -= Time.deltaTime;
+
+                if (meleeTimer <= 0)
+                {
+                    melee.MeleeAttack();
+                    meleeTimerStart = false;
+                    meleeTimer = meleeCooldown;
+                }
+            }
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
@@ -46,21 +63,23 @@ namespace Bubble.Enemies
             if (other.CompareTag("Bullet") && !_teleporting && !other.GetComponent<Projectile>().hasHitEnemy)
             {
                 other.GetComponent<Projectile>().Owner.TryGetComponent(out PlayerShoot player);
-                other.GetComponent<Projectile>().Owner.TryGetComponent(out Enemy enemy);
+                other.GetComponent<Projectile>().Owner.TryGetComponent(out GenericAhEnemy enemy);
 
                 other.GetComponent<Projectile>().hasHitEnemy = true;
-                print("hit");
                 _teleporting = true;
                 _tpTimer = tpCooldown;
-                print("Owner: " + other.GetComponent<Projectile>().Owner);
-                print("Player: " + player);
-                print("Enemy: " + enemy);
+                //print("Owner: " + other.GetComponent<Projectile>().Owner);
+                //print("Player: " + player);
+                //print("Enemy: " + enemy);
                 TeleportBehindTarget(player ? player.transform : enemy.transform);
             }
         }
         
         private void TeleportBehindTarget(Transform pos)
         {
+            meleeTimer = meleeCooldown;
+            meleeTimerStart = true;
+
             Vector2 firePointPosition = pos.position;
             Vector2 backDirection = pos.right * teleportationRange;
             

@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5887047706759702920}
   - component: {fileID: 9100907093902318220}
   - component: {fileID: 5179248889329413873}
-  m_Layer: 0
+  - component: {fileID: 2682806162166138737}
+  - component: {fileID: 126470373833314669}
+  m_Layer: 9
   m_Name: TP_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,6 +167,42 @@ MonoBehaviour:
   playerFirePoint: {fileID: 0}
   teleportationRange: 5
   tpCooldown: 1.5
+  melee: {fileID: 0}
+  meleeCooldown: 0.5
+--- !u!114 &2682806162166138737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527404937734757642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84517ecd8373db542aa0f2f587c84602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeleePos: {fileID: 5886784817980510171}
+  MeleeSize: {x: 2, y: 2}
+  MeleeEffect: {fileID: 6188192282491343184, guid: ba3b3046ed6b7a34584a4602b204cea0, type: 3}
+  MeleeEffectTime: 0.5
+--- !u!114 &126470373833314669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527404937734757642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc76b2cea30962c41b65f0b6dafecff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
+  Velocity: 1
+  ShootingCooldown: 1
+  mayShootAtStart: 0
+  isEnemy: 0
+  target: {fileID: 0}
 --- !u!1 &1320486980478124565
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6760652114411217770}
   - component: {fileID: 6475405142153973359}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5982447202324308563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
