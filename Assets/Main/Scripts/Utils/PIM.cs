@@ -177,7 +177,6 @@ namespace Bubble.Utils
 
         public void OnR(InputAction.CallbackContext context)
         {
-
             if (context.phase == InputActionPhase.Started)
             { 
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
