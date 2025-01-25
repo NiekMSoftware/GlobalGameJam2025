@@ -55,10 +55,16 @@ namespace Bubble
 
                 if (dashTimer <= 0)
                 {
+                    print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
                 }
             }
+
+            // if (Input.GetKeyDown(KeyCode.E))
+            // {
+            //     Dash();
+            // }
         }
 
         protected override void FixedUpdate()
@@ -77,6 +83,7 @@ namespace Bubble
         private void Dash()
         {
             isDashing = true;
+            print("Dash!");
             rb.linearVelocity = dashDir * dashForce;
         }
 
