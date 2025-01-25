@@ -23,6 +23,8 @@ namespace Bubble
 
             direction = target.position - transform.position;
 
+            direction.Normalize();
+
             if (MayShoot()) Shoot();
         }
 
