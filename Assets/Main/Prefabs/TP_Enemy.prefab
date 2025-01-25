@@ -164,10 +164,11 @@ MonoBehaviour:
   lookDir: {fileID: 5982447202324308563}
   agent: {fileID: 6746576755934653619}
   target: {fileID: 0}
-  fieldOfView: 100
+  fieldOfView: 69
   socialDistance: 5
   moveSpeed: 3
   maxSpeed: 7
+  deadSprite: {fileID: 21300000, guid: c1cd4e4057f942c4ab9c8fd7f02d57eb, type: 3}
   teleportationRange: 5
   tpCooldown: 1.5
 --- !u!114 &2682806162166138737
