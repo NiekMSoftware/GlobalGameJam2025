@@ -47,8 +47,14 @@ namespace Bubble.Enemies
             MoveToTarget();
             ClampVelocity();
         }
-        
-        protected virtual void OnTriggerEnter2D(Collider2D other) { }
+
+        protected virtual void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Spikes"))
+            {
+                Destroy(gameObject);
+            }
+        }
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
