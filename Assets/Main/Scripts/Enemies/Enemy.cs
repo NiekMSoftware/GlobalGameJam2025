@@ -1,6 +1,6 @@
 using Bubble.Enemies;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.InputSystem.Android;
 
 namespace Bubble
 {
@@ -11,10 +11,12 @@ namespace Bubble
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
         [SerializeField] private float deathDelay = 1;
-        [SerializeField] private Sprite deathSprite;
+        [SerializeField] private GameObject dashEffect;
 
         private float dashTimer;
         private bool isDashing;
+
+        private GameObject spawnedDashEffect;
 
         private void OnEnable()
         {
@@ -38,18 +40,14 @@ namespace Bubble
             if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet 
                 && !collision.gameObject.GetComponent<Projectile>().hasHitEnemy)
             {
-                Death();
+                Invoke(nameof(Death), deathDelay);
             }
         }
 
         private void Death()
         {
-            Destroy(gameObject,deathDelay);
-            isDashing = false;
-            GetComponent<EnemyShooting>().ShootingCooldown = 999f;
-            GetComponent<SpriteRenderer>().sprite = deathSprite;
-            GetComponent<Collider>().enabled = false;
-            target = null;
+            if (spawnedDashEffect) Destroy(spawnedDashEffect);
+            Destroy(gameObject);
         }
 
         protected override void Update()
@@ -62,16 +60,21 @@ namespace Bubble
 
                 if (dashTimer <= 0)
                 {
+                    agent.speed = 3.5f;
+                    agent.acceleration = 8f;
+                    //agent.autoBraking = true;
+
                     print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
+                    Destroy(spawnedDashEffect);
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Dash();
-            }
+            //if (Input.GetKeyDown(KeyCode.E))
+            //{
+            //    Dash();
+            //}
         }
 
         protected override void FixedUpdate()
@@ -91,7 +94,17 @@ namespace Bubble
         {
             isDashing = true;
             print("Dash!");
+            //agent.enabled = false;
+            agent.speed = 100;
+            //agent.autoBraking = false;
+            agent.acceleration = 1000;
+            agent.SetDestination((Vector2)transform.position + (dashDir * dashForce));
             rb.linearVelocity = dashDir * dashForce;
+            //agent.enabled = true;
+
+            var angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg;
+
+            spawnedDashEffect = Instantiate(dashEffect, (Vector2)transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
         }
 
         //private void Movement()

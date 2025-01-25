@@ -27,7 +27,7 @@ namespace Bubble.Utils
         public event Action UIOnSubmitEvent;
         public event Action UIOnCancelEvent;
         public event Action UIOnRightClickEvent;
-        private bool KeyboardActive = true;
+        public bool KeyboardActive = true;
 
         void Update()
         {
@@ -35,14 +35,11 @@ namespace Bubble.Utils
             {
                 _inputSystem.devices = new InputDevice[] { Keyboard.current,Mouse.current };
                 KeyboardActive = true;
-                Debug.LogWarning("Switched to Keyboard & Mouse");
-
             }
             else if (Gamepad.current != null && Gamepad.current.buttonEast.isPressed)
             {
                 _inputSystem.devices = new InputDevice[] { Gamepad.current };
                 KeyboardActive = false;
-                Debug.LogWarning("Switched to Gamepad");
             }
         }
 
@@ -87,7 +84,6 @@ namespace Bubble.Utils
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            Debug.LogWarning("Looking");
             if (context.phase == InputActionPhase.Performed)
                 if (KeyboardActive)
                 {
@@ -95,7 +91,7 @@ namespace Bubble.Utils
                 }
                 else if (!KeyboardActive)
                 {
-                    LookEvent?.Invoke(context.ReadValue<Vector2>() * 800);
+                    LookEvent?.Invoke(context.ReadValue<Vector2>());
                 }
         }
 

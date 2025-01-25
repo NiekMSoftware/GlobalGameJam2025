@@ -1,5 +1,6 @@
 using Bubble.Temp;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Serialization;
 
 namespace Bubble.Enemies
@@ -9,6 +10,7 @@ namespace Bubble.Enemies
     {
         public Transform lookDir;
 
+        [SerializeField] protected NavMeshAgent agent;
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
         protected CircleCollider2D circle;
@@ -37,6 +39,7 @@ namespace Bubble.Enemies
             rb = GetComponent<Rigidbody2D>();
             box = GetComponent<BoxCollider2D>();
             circle = GetComponent<CircleCollider2D>();
+            agent = GetComponent<NavMeshAgent>();
             
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             
@@ -73,12 +76,13 @@ namespace Bubble.Enemies
             if (other.gameObject.CompareTag("Bullet") && !other.gameObject.GetComponent<Projectile>().isEnemyBullet
                 && !other.gameObject.GetComponent<Projectile>().hasHitEnemy)
             {
-                Destroy(gameObject);
+                Die();
             }
             
             if (other.gameObject.CompareTag("Spikes"))
             {
-                Destroy(gameObject);
+                print("I AM INTERACTING MOTHER TRUCKER");
+                Die();
             }
         }
 
@@ -89,6 +93,8 @@ namespace Bubble.Enemies
         {
             if (target == null) return;
             
+            agent.SetDestination(target.position + (Vector3)StopHuggingTarget());
+
             Vector2 direction = (target.position - transform.position).normalized;
             
             // Calculate the angle to the target
@@ -97,7 +103,7 @@ namespace Bubble.Enemies
             // Apply the rotation to the Z axis
             lookDir.rotation = Quaternion.Euler(0, 0, -targetAngle);
             
-            rb.linearVelocity = (direction + StopHuggingTarget()) * moveSpeed;
+            // rb.linearVelocity = (direction + StopHuggingTarget()) * moveSpeed;
         }
 
         /// <summary>
@@ -131,6 +137,11 @@ namespace Bubble.Enemies
                 return (transform.position - target.position).normalized;
             }
             return Vector2.zero;
+        }
+
+        public void Die()
+        {
+            Destroy(gameObject);
         }
     }
 }
