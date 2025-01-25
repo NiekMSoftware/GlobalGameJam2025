@@ -1,6 +1,5 @@
 using Bubble.Enemies;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 namespace Bubble
 {
@@ -11,9 +10,12 @@ namespace Bubble
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
         [SerializeField] private float deathDelay = 1;
+        [SerializeField] private GameObject dashEffect;
 
         private float dashTimer;
         private bool isDashing;
+
+        private GameObject spawnedDashEffect;
 
         private void OnEnable()
         {
@@ -28,18 +30,18 @@ namespace Bubble
             }
         }
 
-        protected void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Bullet"))
-            {
-                Invoke(nameof(Death), deathDelay);
-            }
-        }
+        //protected void OnCollisionEnter2D(Collision2D collision)
+        //{
+        //    if (collision.gameObject.CompareTag("Bullet"))
+        //    {
+        //        Invoke(nameof(Death), deathDelay);
+        //    }
+        //}
 
-        private void Death()
-        {
-            Destroy(gameObject);
-        }
+        //private void Death()
+        //{
+        //    Destroy(gameObject);
+        //}
 
         protected override void Update()
         {
@@ -84,7 +86,7 @@ namespace Bubble
             //agent.autoBraking = false;
             agent.acceleration = 1000;
             agent.SetDestination((Vector2)transform.position + (dashDir * dashForce));
-            rb.linearVelocity = dashDir * dashForce;
+            //rb.linearVelocity = dashDir * dashForce;
             //agent.enabled = true;
 
             var angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg;

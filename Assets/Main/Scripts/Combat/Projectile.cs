@@ -16,10 +16,10 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float BulletLifeTime = 3f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-            gameObject.GetComponent<Collider2D>().enabled = true;
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    gameObject.GetComponent<Collider2D>().enabled = true;
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
