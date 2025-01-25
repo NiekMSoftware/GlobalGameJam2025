@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: deathDelay
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857408142}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.72
@@ -725,6 +729,10 @@ PrefabInstance:
       propertyPath: deathDelay
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857408142}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.98
@@ -5769,6 +5777,10 @@ PrefabInstance:
       propertyPath: deathDelay
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857408142}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.36
@@ -5853,6 +5865,10 @@ PrefabInstance:
       propertyPath: deathDelay
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857408142}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.56
