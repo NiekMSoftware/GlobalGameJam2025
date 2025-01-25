@@ -17,7 +17,7 @@ namespace Bubble
         private Rigidbody2D ProjectileRB;
         void Start() 
         {
-            pWayerInpUWUt = GetComponent<PlayerInput>();
+            //pWayerInpUWUt = GetComponentInParent<PlayerInput>();
             Cursor.lockState = CursorLockMode.Confined;
         }
 
@@ -48,8 +48,7 @@ namespace Bubble
 
         private void OnEnable()// Subscribe function to events
         {
-            pWayerInpUWUt = GetComponent<PlayerInput>();
-
+            pWayerInpUWUt = GetComponentInParent<PlayerInput>();
 
             pWayerInpUWUt.BasicAttackEvent += Shoot;
             pWayerInpUWUt.LookEvent += Look;
