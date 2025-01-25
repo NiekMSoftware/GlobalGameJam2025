@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   isEnemyBullet: 0
   enemyBulletLayer: 8
   playerBulletLayer: 7
-  damage: 30
+  damage: 5
   BulletLifeTime: 3
 --- !u!58 &8214252516145233057
 CircleCollider2D:

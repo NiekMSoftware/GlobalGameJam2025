@@ -1,3 +1,5 @@
+using Bubble;
+using Bubble.Enemies;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +12,8 @@ public class Projectile : MonoBehaviour
 
     public float damage;
 
+    private bool hasHitEnemy;
+
     [SerializeField] private float BulletLifeTime = 3f;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,9 +24,14 @@ public class Projectile : MonoBehaviour
         }
         catch { }
 
-        print("Bullet destroyed: " + collision.collider.name);
+        if (!hasHitEnemy && (collision.transform.TryGetComponent(out Player _) && isEnemyBullet) || (collision.transform.TryGetComponent(out GenericAhEnemy _) && !isEnemyBullet))
+        {
+            print("Bullet destroyed: " + collision.collider.name);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+
+            hasHitEnemy = true;
+        }      
     }
 
     public void Start()

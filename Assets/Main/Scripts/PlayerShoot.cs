@@ -6,6 +6,7 @@ namespace Bubble
     public class PlayerShoot : BaseScripieShooting
     {
         public Transform FirePoint;
+        public Transform ShootPoint;
         public CameraShake cameraShake;
         public float cameraShakeLength = 0.5f;
         public float cameraShakeIntensity =  0.5f;
@@ -43,6 +44,8 @@ namespace Bubble
         protected override void Shoot()
         {
             if (!MayShoot()) return;
+
+            shootPos = ShootPoint.position;
 
             base.Shoot();
 
