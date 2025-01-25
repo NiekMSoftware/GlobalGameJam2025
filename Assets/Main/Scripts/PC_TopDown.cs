@@ -8,7 +8,7 @@ namespace Bubble.Temp
     {
         private Rigidbody2D rb;
         private Vector2 input;
-        private PlayerInput playerInput;
+        private PIM playerInput;
         
         public float speed;
         [Range(1f, 15f)] public float maxVelocity = 10f;
@@ -16,7 +16,7 @@ namespace Bubble.Temp
 
         private void OnEnable()
         {
-            playerInput = GetComponent<PlayerInput>();
+            playerInput = GetComponent<PIM>();
             
             playerInput.MoveEvent += RetrieveMovement;
         }

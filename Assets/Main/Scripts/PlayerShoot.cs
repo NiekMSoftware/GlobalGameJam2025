@@ -10,7 +10,7 @@ namespace Bubble
         public float Velocity = 100;
 
         private Vector2 direction;
-        private PlayerInput pWayerInpUWUt;
+        private PIM pWayerInpUWUt;
 
         private float LookInputX, LookInputY;
 
@@ -48,7 +48,7 @@ namespace Bubble
 
         private void OnEnable()// Subscribe function to events
         {
-            pWayerInpUWUt = GetComponentInParent<PlayerInput>();
+            pWayerInpUWUt = GetComponentInParent<PIM>();
 
             pWayerInpUWUt.BasicAttackEvent += Shoot;
             pWayerInpUWUt.LookEvent += Look;
