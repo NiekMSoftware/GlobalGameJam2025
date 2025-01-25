@@ -19,6 +19,7 @@ namespace Bubble.Enemies
         [SerializeField] protected float socialDistance;
         [Space, SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;
+        [SerializeField] private Sprite deadSprite;
 
         protected virtual void OnValidate()
         {
@@ -121,6 +122,10 @@ namespace Bubble.Enemies
         public void Die()
         {
             Destroy(gameObject , 1f);
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = deadSprite;
+            GetComponent< BoxCollider2D>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<EnemyShooting>().ShootingCooldown = 999f;
         }
     }
 }

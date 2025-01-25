@@ -143,10 +143,11 @@ MonoBehaviour:
   lookDir: {fileID: 410190819656732809}
   agent: {fileID: 298349840984533677}
   target: {fileID: 0}
-  fieldOfView: 100
+  fieldOfView: 69
   socialDistance: 5
   moveSpeed: 3
   maxSpeed: 2
+  deadSprite: {fileID: 0}
   speed: 1
   dashDir: {x: -1, y: 0}
   dashForce: 3
