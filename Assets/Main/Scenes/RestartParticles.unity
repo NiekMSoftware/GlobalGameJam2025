@@ -460,6 +460,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!4 &565103872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7498856135141749785, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+  m_PrefabInstance: {fileID: 7548183761023787383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6137,6 +6142,10 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: Transform
+      value: 
+      objectReference: {fileID: 565103872}
     - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: cameraShake
       value: 

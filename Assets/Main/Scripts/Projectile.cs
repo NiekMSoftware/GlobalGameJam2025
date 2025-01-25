@@ -66,7 +66,11 @@ public class Projectile : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
+        try
+        {
+            Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
+        }
+        catch { }
     }
 
 }
