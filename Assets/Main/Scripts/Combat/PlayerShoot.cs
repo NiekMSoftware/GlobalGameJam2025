@@ -52,6 +52,8 @@ namespace Bubble
         {
             base.OnEnable();
 
+            Transform = transform;
+
             pWayerInpUWUt = GetComponentInParent<PIM>();
 
             pWayerInpUWUt.BasicAttackEvent += Shoot;

@@ -1,5 +1,6 @@
 using Bubble.Enemies;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 
 namespace Bubble
 {
@@ -59,6 +60,10 @@ namespace Bubble
 
                 if (dashTimer <= 0)
                 {
+                    agent.speed = 3.5f;
+                    agent.acceleration = 8f;
+                    //agent.autoBraking = true;
+
                     print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
@@ -89,7 +94,13 @@ namespace Bubble
         {
             isDashing = true;
             print("Dash!");
+            //agent.enabled = false;
+            agent.speed = 100;
+            //agent.autoBraking = false;
+            agent.acceleration = 1000;
+            agent.SetDestination((Vector2)transform.position + (dashDir * dashForce));
             rb.linearVelocity = dashDir * dashForce;
+            //agent.enabled = true;
 
             var angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg;
 

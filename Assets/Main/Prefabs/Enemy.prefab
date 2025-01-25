@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2352782042475986730
 Transform:
   m_ObjectHideFlags: 0
@@ -141,18 +141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookDir: {fileID: 410190819656732809}
-  agent: {fileID: 0}
+  agent: {fileID: 298349840984533677}
   target: {fileID: 0}
-  fieldOfView: 69
-  socialDistance: 2
+  fieldOfView: 100
+  socialDistance: 5
   moveSpeed: 3
   maxSpeed: 2
   speed: 1
-  dashDir: {x: -1, y: 1}
-  dashForce: 30
-  dashTime: 1
+  dashDir: {x: -1, y: 0}
+  dashForce: 3
+  dashTime: 0.2
   deathDelay: 0.1
-  dashEffect: {fileID: 0}
+  dashEffect: {fileID: 5117922653777725540, guid: 58f4cb116e807ac46a9b5d9ac4baccf1, type: 3}
 --- !u!114 &7522933448424990677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.33578742}
+  m_Offset: {x: -0.90120554, y: 0.020022154}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -278,7 +278,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1618779, y: 1.9815748}
+  m_Size: {x: 2.9642887, y: 2.1051788}
   m_EdgeRadius: 0
 --- !u!195 &298349840984533677
 NavMeshAgent:
