@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDir: {fileID: 410190819656732809}
   target: {fileID: 0}
+  minimumDistance: 0
   moveSpeed: 3
   maxSpeed: 2
   speed: 1

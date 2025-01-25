@@ -13,7 +13,8 @@ namespace Bubble.Enemies
         protected CircleCollider2D circle;
         
         [SerializeField] protected Transform target;
-        [SerializeField] protected float moveSpeed;
+        [SerializeField] protected float minimumDistance;
+        [Space, SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;
 
         protected virtual void OnValidate()
@@ -44,6 +45,12 @@ namespace Bubble.Enemies
 
         protected virtual void Update()
         {
+            if (!IsTargetInView())
+            {
+                print("Not finna move man");
+                return;
+            }
+            
             // Get the direction to the target
             Vector2 direction = target.position - transform.position;
 
@@ -56,6 +63,8 @@ namespace Bubble.Enemies
 
         protected virtual void FixedUpdate()
         {
+            if (!IsTargetInView()) return;
+            
             MoveToTarget();
             ClampVelocity();
         }
@@ -106,6 +115,11 @@ namespace Bubble.Enemies
         protected Transform GetTarget()
         {
             return FindFirstObjectByType<PC_TopDown>().transform;
+        }
+
+        protected bool IsTargetInView()
+        {
+            return Vector2.Distance(transform.position, target.position) < minimumDistance;
         }
     }
 }

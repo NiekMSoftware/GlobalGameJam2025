@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDir: {fileID: 5982447202324308563}
   target: {fileID: 0}
+  minimumDistance: 0
   moveSpeed: 3
   maxSpeed: 7
   playerFirePoint: {fileID: 0}
