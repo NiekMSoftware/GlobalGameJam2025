@@ -1,5 +1,6 @@
 using Bubble.Enemies;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Bubble
 {
@@ -10,6 +11,7 @@ namespace Bubble
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
         [SerializeField] private float deathDelay = 1;
+        [SerializeField] private Sprite deathSprite;
 
         private float dashTimer;
         private bool isDashing;
@@ -31,18 +33,23 @@ namespace Bubble
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
-            base.OnCollisionEnter2D(collision);
+            //base.OnCollisionEnter2D(collision);
             
             if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet 
                 && !collision.gameObject.GetComponent<Projectile>().hasHitEnemy)
             {
-                Invoke(nameof(Death), deathDelay);
+                Death();
             }
         }
 
         private void Death()
         {
-            Destroy(gameObject);
+            Destroy(gameObject,deathDelay);
+            isDashing = false;
+            GetComponent<EnemyShooting>().ShootingCooldown = 999f;
+            GetComponent<SpriteRenderer>().sprite = deathSprite;
+            GetComponent<Collider>().enabled = false;
+            target = null;
         }
 
         protected override void Update()
