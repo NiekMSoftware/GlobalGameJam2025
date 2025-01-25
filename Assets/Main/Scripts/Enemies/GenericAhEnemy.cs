@@ -1,5 +1,6 @@
 using Bubble.Temp;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Bubble.Enemies
 {
@@ -13,7 +14,8 @@ namespace Bubble.Enemies
         protected CircleCollider2D circle;
         
         [SerializeField] protected Transform target;
-        [SerializeField] protected float minimumDistance;
+        [SerializeField] protected float fieldOfView;
+        [SerializeField] protected float socialDistance;
         [Space, SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;
 
@@ -50,15 +52,6 @@ namespace Bubble.Enemies
                 print("Not finna move man");
                 return;
             }
-            
-            // Get the direction to the target
-            Vector2 direction = target.position - transform.position;
-
-            // Calculate the angle to the target
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180;
-
-            // Apply the rotation to the Z axis
-            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
         }
 
         protected virtual void FixedUpdate()
@@ -96,8 +89,15 @@ namespace Bubble.Enemies
         {
             if (target == null) return;
             
-            Vector2 direction = target.position - transform.position;
-            rb.linearVelocity = direction.normalized * moveSpeed;
+            Vector2 direction = (target.position - transform.position).normalized;
+            
+            // Calculate the angle to the target
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180;
+
+            // Apply the rotation to the Z axis
+            lookDir.rotation = Quaternion.Euler(0, 0, -targetAngle);
+            
+            rb.linearVelocity = (direction + StopHuggingTarget()) * moveSpeed;
         }
 
         /// <summary>
@@ -119,7 +119,18 @@ namespace Bubble.Enemies
 
         protected bool IsTargetInView()
         {
-            return Vector2.Distance(transform.position, target.position) < minimumDistance;
+            return Vector2.Distance(transform.position, target.position) < fieldOfView;
+        }
+        
+        protected Vector2 StopHuggingTarget()
+        {
+            float distance = Vector2.Distance(transform.position, target.position);
+            if (distance <= socialDistance)
+            {
+                // Return a vector that moves away from the target
+                return (transform.position - target.position).normalized;
+            }
+            return Vector2.zero;
         }
     }
 }
