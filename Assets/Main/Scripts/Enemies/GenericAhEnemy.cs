@@ -66,13 +66,6 @@ namespace Bubble.Enemies
 
         protected virtual void OnTriggerEnter2D(Collider2D other) { }
 
-        protected virtual void OnCollisionEnter2D(Collision2D other)
-        {// If get hit by bullet then die 
-            if (other.gameObject.CompareTag("Bullet"))
-            {
-                Die();
-            }
-        }
 
         /// <summary>
         /// Generic method to move to target.

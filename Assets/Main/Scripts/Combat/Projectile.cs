@@ -7,10 +7,8 @@ public class Projectile : MonoBehaviour
 {
     public GameObject Owner;
     public bool isEnemyBullet;
-
     public int enemyBulletLayer;
     public int playerBulletLayer;
-
     public float damage;
 
     [Tooltip("Pwefwab nweeded :3")]
@@ -20,11 +18,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        try
-        {
-            gameObject.GetComponent<Collider2D>().enabled = false;
-        }
-        catch { }
+            gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
