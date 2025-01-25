@@ -120,7 +120,7 @@ namespace Bubble.Enemies
 
         public void Die()
         {
-            Destroy(gameObject);
+            Destroy(gameObject , 1f);
         }
     }
 }
