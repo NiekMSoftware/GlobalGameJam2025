@@ -5,6 +5,7 @@ namespace Bubble
 {
     public class PlayerShoot : BaseScripieShooting
     {
+        public Transform FirePoint;
         public CameraShake cameraShake;
         public float cameraShakeLength = 0.5f;
         public float cameraShakeIntensity =  0.5f;

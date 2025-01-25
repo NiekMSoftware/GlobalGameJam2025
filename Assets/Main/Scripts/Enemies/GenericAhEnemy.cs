@@ -55,7 +55,7 @@ namespace Bubble.Enemies
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
             // destroy this enemy
-            if (other.gameObject.CompareTag("Bullet"))
+            if (other.gameObject.CompareTag("Bullet") && !other.gameObject.GetComponent<Projectile>().isEnemyBullet)
             {
                 Destroy(gameObject);
             }

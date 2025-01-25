@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2352782042475986730}
   - component: {fileID: 745875480153328872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TriggerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,10 +98,11 @@ GameObject:
   - component: {fileID: 8984208024822082497}
   - component: {fileID: 4422966063053057585}
   - component: {fileID: 6867460623074525894}
+  - component: {fileID: 7522933448424990677}
   - component: {fileID: 1352828729471111616}
   - component: {fileID: 8721302561464923821}
   - component: {fileID: 2883548497565189158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,13 +193,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 2
   maxSpeed: 2
   speed: 1
   dashDir: {x: 0, y: -1}
   dashForce: 30
   dashTime: 1
   deathDelay: 0.1
+--- !u!114 &7522933448424990677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258054761608175344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc76b2cea30962c41b65f0b6dafecff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
+  Velocity: 10
+  ShootingCooldown: 1
+  mayShootAtStart: 0
+  isEnemy: 1
+  target: {fileID: 0}
 --- !u!50 &1352828729471111616
 Rigidbody2D:
   serializedVersion: 5

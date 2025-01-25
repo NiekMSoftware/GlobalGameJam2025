@@ -129,6 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d9524b57ac67f40bd339aed126de48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyBullet: 0
+  enemyBulletLayer: 8
+  playerBulletLayer: 7
+  damage: 30
+  BulletLifeTime: 3
 --- !u!58 &8214252516145233057
 CircleCollider2D:
   m_ObjectHideFlags: 0

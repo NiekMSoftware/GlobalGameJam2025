@@ -5,17 +5,23 @@ namespace Bubble
 {
     public class EnemyShooting : BaseScripieShooting
     {
+        public Transform target;
+
         private float LookInputX, LookInputY;
 
+        //protected override void OnEnable()
+        //{
+        //    base.OnEnable();
+        //}
 
-        private void Update()
+
+        protected override void Update()
         {
-            //direction = Quaternion.Euler(0, 0, 0) * -FirePoint.right;
+            base.Update();
 
-            //Vector3 lookTarget = new Vector3(LookInputX, LookInputY, FirePoint.position.z);
+            shootPos = transform.position;
 
-            //FirePoint.LookAt(Camera.main.ScreenToWorldPoint(lookTarget), Vector3.back);
-            //FirePoint.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z + 90);
+            direction = target.position - transform.position;
 
             if (MayShoot()) Shoot();
         }

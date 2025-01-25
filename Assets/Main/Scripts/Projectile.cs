@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Projectile : MonoBehaviour
 {
     public bool isEnemyBullet;
+
+    public int enemyBulletLayer;
+    public int playerBulletLayer;
+
+    public float damage;
 
     [SerializeField] private float BulletLifeTime = 3f;
 
@@ -15,11 +19,16 @@ public class Projectile : MonoBehaviour
             //collision.gameObject.GetComponent<AI>().Die();
         }
         catch { }
+
+        print("Bullet destroyed: " + collision.collider.name);
+
         Destroy(gameObject);
     }
 
     public void Start()
     {
+        gameObject.layer = isEnemyBullet ? enemyBulletLayer : playerBulletLayer;
+
         StartCoroutine(KillBullet());
     }
 
