@@ -1,5 +1,7 @@
 using Bubble.Utils;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Bubble
 {
@@ -18,7 +20,8 @@ namespace Bubble
         void Start() 
         {
             //pWayerInpUWUt = GetComponentInParent<PlayerInput>();
-            Cursor.lockState = CursorLockMode.Confined;
+
+            // Cursor.lockState = CursorLockMode.Locked;
         }
 
 
@@ -39,6 +42,7 @@ namespace Bubble
         {
             LookInputX = obj.x;
             LookInputY = obj.y;
+            Debug.LogWarning($"{LookInputX} {LookInputY}");
         }
 
         protected override void Shoot()

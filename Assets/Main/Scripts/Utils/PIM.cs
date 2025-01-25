@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Bubble.Utils
 {
@@ -26,7 +27,24 @@ namespace Bubble.Utils
         public event Action UIOnSubmitEvent;
         public event Action UIOnCancelEvent;
         public event Action UIOnRightClickEvent;
+        private bool KeyboardActive = true;
 
+        void Update()
+        {
+            if (Keyboard.current.anyKey.isPressed)
+            {
+                _inputSystem.devices = new InputDevice[] { Keyboard.current,Mouse.current };
+                KeyboardActive = true;
+                Debug.LogWarning("Switched to Keyboard & Mouse");
+
+            }
+            else if (Gamepad.current != null && Gamepad.current.buttonEast.isPressed)
+            {
+                _inputSystem.devices = new InputDevice[] { Gamepad.current };
+                KeyboardActive = false;
+                Debug.LogWarning("Switched to Gamepad");
+            }
+        }
 
         private void OnEnable()
         {
@@ -69,13 +87,18 @@ namespace Bubble.Utils
 
         public void OnLook(InputAction.CallbackContext context)
         {
+            Debug.LogWarning("Looking");
             if (context.phase == InputActionPhase.Performed)
-                LookEvent?.Invoke(context.ReadValue<Vector2>());
+                if (KeyboardActive)
+                {
+                    LookEvent?.Invoke(context.ReadValue<Vector2>());
+                }
+                else if (!KeyboardActive)
+                {
+                    LookEvent?.Invoke(context.ReadValue<Vector2>() * 800);
+                }
         }
 
-        public void OnBasic_Attack(InputAction.CallbackContext context)
-        {
-        }
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
@@ -175,6 +198,14 @@ namespace Bubble.Utils
         public void OnUIOnRightClickEvent()
         {
             UIOnRightClickEvent?.Invoke();
+        }
+
+        public void OnR(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Started)
+            { 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }
