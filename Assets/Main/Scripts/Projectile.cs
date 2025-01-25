@@ -2,7 +2,6 @@ using Bubble;
 using Bubble.Enemies;
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class Projectile : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class Projectile : MonoBehaviour
     public int playerBulletLayer;
 
     public float damage;
-    public bool hasHitEnemy;
 
     [Tooltip("Pwefwab nweeded :3")]
     public GameObject Particles; 
@@ -22,39 +20,27 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(hasHitEnemy);
-
-        if (!hasHitEnemy && collision.TryGetComponent(out Player _) && isEnemyBullet)
+        try
         {
-            //hasHitEnemy = true;
-
-            print("Bullet uneffective: " + collision.name);
-
-            //Destroy(gameObject);
-            //GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Collider2D>().enabled = false;
         }
+        catch { }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         try
         {
-            //collision.gameObject.GetComponent<AI>().Die();
+            collision.gameObject.GetComponent<GenericAhEnemy>().Die();
+            collision.gameObject.GetComponent<Enemy>().Die();
+            collision.gameObject.GetComponent<TP_Enemy>().Die();
         }
         catch { }
-
-        if (true/*!hasHitEnemy && ((collision.transform.TryGetComponent(out Player _) && isEnemyBullet) || (collision.transform.TryGetComponent(out GenericAhEnemy _) && !isEnemyBullet))*/)
-        {
-            print("Bullet destroyed: " + collision.collider.name);
-
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public void Start()
     {
-        gameObject.layer = isEnemyBullet ? enemyBulletLayer : playerBulletLayer;
-
         StartCoroutine(KillBullet());
     }
 

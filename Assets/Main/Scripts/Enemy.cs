@@ -21,9 +21,7 @@ namespace Bubble
 
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
-            base.OnTriggerEnter2D(collision);
-
-            if (collision.CompareTag("Bullet") && !collision.GetComponent<Projectile>().hasHitEnemy)
+            if (collision.CompareTag("Bullet"))
             {
                 Dash();
             }
@@ -31,10 +29,7 @@ namespace Bubble
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
-            base.OnCollisionEnter2D(collision);
-            
-            if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet 
-                && !collision.gameObject.GetComponent<Projectile>().hasHitEnemy)
+            if (collision.gameObject.CompareTag("Bullet"))
             {
                 Invoke(nameof(Death), deathDelay);
             }
