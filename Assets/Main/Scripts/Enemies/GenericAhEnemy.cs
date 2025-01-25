@@ -50,16 +50,18 @@ namespace Bubble.Enemies
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Spikes"))
-            {
-                Destroy(gameObject);
-            }
+            
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D other)
         {
             // destroy this enemy
             if (other.gameObject.CompareTag("Bullet"))
+            {
+                Destroy(gameObject);
+            }
+            
+            if (other.gameObject.CompareTag("Spikes"))
             {
                 Destroy(gameObject);
             }
