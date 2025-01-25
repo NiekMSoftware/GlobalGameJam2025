@@ -11,10 +11,10 @@ namespace Bubble
             try
             {
                 other.gameObject.GetComponent<GenericAhEnemy>().Die();
-                print("DIE DIE DIE");
+                other.gameObject.GetComponent<Enemy>().Die();
+                other.gameObject.GetComponent<TP_Enemy>().Die();
             }
-            catch (UnityException e)
-            { }
+            catch { }
         }
     }
 }
