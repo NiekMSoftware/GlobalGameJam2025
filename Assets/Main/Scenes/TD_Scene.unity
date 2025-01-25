@@ -2252,26 +2252,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1352828729471111616, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 6258054761608175344, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6258054761608175344, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1857408142}
-    - target: {fileID: 7522933448424990677, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
-      propertyPath: Velocity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.36
@@ -2841,6 +2829,10 @@ PrefabInstance:
     - target: {fileID: 3540340645629360668, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429208404530665822, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39.899902
       objectReference: {fileID: 0}
     - target: {fileID: 7440129223325244800, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
       propertyPath: m_Color.b

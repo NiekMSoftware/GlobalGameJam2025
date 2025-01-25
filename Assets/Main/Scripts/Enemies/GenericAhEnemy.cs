@@ -6,6 +6,8 @@ namespace Bubble.Enemies
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(CircleCollider2D))]
     public class GenericAhEnemy : MonoBehaviour
     {
+        public Transform lookDir;
+
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
         protected CircleCollider2D circle;
@@ -40,7 +42,17 @@ namespace Bubble.Enemies
             target = GetTarget();
         }
 
-        protected virtual void Update() { }
+        protected virtual void Update()
+        {
+            // Get the direction to the target
+            Vector2 direction = target.position - transform.position;
+
+            // Calculate the angle to the target
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180;
+
+            // Apply the rotation to the Z axis
+            transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+        }
 
         protected virtual void FixedUpdate()
         {
