@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Bubble.Utils
 {
-    public class PlayerInput : MonoBehaviour ,PlayerInputActions.IPlayerActions, PlayerInputActions.IUIActions
+    public class PIM : MonoBehaviour ,PlayerInputActions.IPlayerActions, PlayerInputActions.IUIActions
     {
         private PlayerInputActions _inputSystem;
         private PlayerInputActions.PlayerActions _playerActions;
