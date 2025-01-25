@@ -354,6 +354,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2106604120300182012, guid: 795f5882153d3ac4e879239443a99cb4, type: 3}
     - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: Velocity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1575289784}
@@ -5997,7 +6001,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.35695973, g: 0.6981132, b: 0.36055955, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
