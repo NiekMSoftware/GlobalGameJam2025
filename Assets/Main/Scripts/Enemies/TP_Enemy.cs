@@ -7,8 +7,10 @@ namespace Bubble.Enemies
     {
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private float teleportationRange;
-        
-        private bool teleporting;
+        [SerializeField] private float tpCooldown;
+
+        private float _tpTimer;
+        private bool _teleporting;
 
         protected override void OnValidate()
         {
@@ -23,11 +25,28 @@ namespace Bubble.Enemies
             playerFirePoint = target.GetComponent<PC_TopDown>().GetComponentInChildren<PlayerShoot>().transform;
         }
 
+        protected override void Update()
+        {
+            base.Update();
+            
+            if (_teleporting)
+            {
+                print("Teleporting");
+                _tpTimer -= Time.deltaTime;
+                if (_tpTimer <= 0)
+                {
+                    _teleporting = false;
+                    _tpTimer = tpCooldown;
+                }
+            }
+        }
+
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Bullet"))
+            if (other.CompareTag("Bullet") && !_teleporting)
             {
-                teleporting = true;
+                _teleporting = true;
+                _tpTimer = tpCooldown;
                 TeleportBehindTarget();
             }
         }

@@ -22,7 +22,6 @@ namespace Bubble.Enemies
             
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             
-            circle.radius = 3f;
             circle.isTrigger = true;
 
             target = GetTarget();
@@ -36,7 +35,6 @@ namespace Bubble.Enemies
             
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             
-            circle.radius = 3f;
             circle.isTrigger = true;
             
             target = GetTarget();
