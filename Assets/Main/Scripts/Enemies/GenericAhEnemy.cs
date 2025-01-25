@@ -9,7 +9,7 @@ namespace Bubble.Enemies
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
         protected CircleCollider2D circle;
-
+        
         [SerializeField] protected Transform target;
         [SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;

@@ -8,6 +8,7 @@ namespace Bubble
         public GameObject BulletPrefab;
         public float Velocity = 100;
         public float ShootingCooldown = 0.5f;
+        public bool mayShootAtStart;
 
         protected Vector2 direction;
 
@@ -15,7 +16,7 @@ namespace Bubble
 
         protected virtual void OnEnable()
         {
-            shootingTimer = ShootingCooldown;
+            if (!mayShootAtStart) shootingTimer = ShootingCooldown;
         }
 
         protected virtual void Update()

@@ -192,9 +192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rb: {fileID: 1352828729471111616}
-  speed: 1
+  moveSpeed: 0
   maxSpeed: 2
+  speed: 1
   dashDir: {x: 0, y: -1}
   dashForce: 30
   dashTime: 1
@@ -222,7 +222,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -261,7 +261,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4
+  m_Radius: 3
 --- !u!61 &2883548497565189158
 BoxCollider2D:
   m_ObjectHideFlags: 0

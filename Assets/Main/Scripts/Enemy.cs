@@ -1,13 +1,11 @@
+using Bubble.Enemies;
 using UnityEngine;
 
 namespace Bubble
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : GenericAhEnemy
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
-        [SerializeField] private float maxSpeed;
         [SerializeField] private Vector2 dashDir;
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
@@ -21,17 +19,17 @@ namespace Bubble
             dashTimer = dashTime;
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        protected override void OnTriggerEnter2D(Collider2D collision)
         {
-            print("Gaming");
+            base.OnTriggerEnter2D(collision);
+
             if (collision.CompareTag("Bullet"))
             {
-                print("More Gaming");
                 Dash();
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        protected override void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Bullet"))
             {
@@ -44,9 +42,9 @@ namespace Bubble
             Destroy(gameObject);
         }
 
-        private void Update()
+        protected override void Update()
         {
-            //print(isDashing);
+            base.Update();
 
             if (isDashing)
             {
@@ -66,13 +64,12 @@ namespace Bubble
             }
         }
 
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
             if (!isDashing)
             {
-                Movement();
-
-                rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
+                MoveToTarget();
+                ClampVelocity();
             }
 
             //agent.SetDestination(target.position);
@@ -85,15 +82,15 @@ namespace Bubble
             rb.linearVelocity = dashDir * dashForce;
         }
 
-        private void Movement()
-        {
-            if (!target) return;
+        //private void Movement()
+        //{
+        //    if (!target) return;
 
-            Vector3 moveDir = target.position - transform.position;
+        //    Vector3 moveDir = target.position - transform.position;
 
-            //moveDir.Normalize();
+        //    //moveDir.Normalize();
 
-            rb.linearVelocity = moveDir * speed;
-        }
+        //    rb.linearVelocity = moveDir * speed;
+        //}
     }
 }

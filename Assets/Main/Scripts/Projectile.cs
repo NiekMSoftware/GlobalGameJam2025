@@ -20,8 +20,6 @@ public class Projectile : MonoBehaviour
 
     public void Start()
     {
-        print(GetComponent<Rigidbody2D>().linearVelocity);
-
         StartCoroutine(KillBullet());
     }
 
