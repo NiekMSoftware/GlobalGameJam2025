@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Bubble.Utils
 {
@@ -73,9 +74,6 @@ namespace Bubble.Utils
                 LookEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
-        public void OnBasic_Attack(InputAction.CallbackContext context)
-        {
-        }
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Performed)
@@ -175,6 +173,15 @@ namespace Bubble.Utils
         public void OnUIOnRightClickEvent()
         {
             UIOnRightClickEvent?.Invoke();
+        }
+
+        public void OnR(InputAction.CallbackContext context)
+        {
+
+            if (context.phase == InputActionPhase.Started)
+            { 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }
