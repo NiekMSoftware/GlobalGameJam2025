@@ -1,7 +1,6 @@
 using Bubble.Temp;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace Bubble.Enemies
 {
@@ -65,26 +64,8 @@ namespace Bubble.Enemies
             ClampVelocity();
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D other)
-        {
-            
-        }
+        protected virtual void OnTriggerEnter2D(Collider2D other) { }
 
-        protected virtual void OnCollisionEnter2D(Collision2D other)
-        {
-            // destroy this enemy
-            if (other.gameObject.CompareTag("Bullet") && !other.gameObject.GetComponent<Projectile>().isEnemyBullet
-                && !other.gameObject.GetComponent<Projectile>().hasHitEnemy)
-            {
-                Die();
-            }
-            
-            if (other.gameObject.CompareTag("Spikes"))
-            {
-                print("I AM INTERACTING MOTHER TRUCKER");
-                Die();
-            }
-        }
 
         /// <summary>
         /// Generic method to move to target.
@@ -97,10 +78,8 @@ namespace Bubble.Enemies
 
             Vector2 direction = (target.position - transform.position).normalized;
             
-            // Calculate the angle to the target
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180;
 
-            // Apply the rotation to the Z axis
             lookDir.rotation = Quaternion.Euler(0, 0, -targetAngle);
             
             // rb.linearVelocity = (direction + StopHuggingTarget()) * moveSpeed;

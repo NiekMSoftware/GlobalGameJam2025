@@ -11,12 +11,9 @@ namespace Bubble
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
         [SerializeField] private float deathDelay = 1;
-        [SerializeField] private GameObject dashEffect;
 
         private float dashTimer;
         private bool isDashing;
-
-        private GameObject spawnedDashEffect;
 
         private void OnEnable()
         {
@@ -25,20 +22,15 @@ namespace Bubble
 
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
-            base.OnTriggerEnter2D(collision);
-
-            if (collision.CompareTag("Bullet") && !collision.GetComponent<Projectile>().hasHitEnemy)
+            if (collision.CompareTag("Bullet"))
             {
                 Dash();
             }
         }
 
-        protected override void OnCollisionEnter2D(Collision2D collision)
+        protected void OnCollisionEnter2D(Collision2D collision)
         {
-            //base.OnCollisionEnter2D(collision);
-            
-            if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet 
-                && !collision.gameObject.GetComponent<Projectile>().hasHitEnemy)
+            if (collision.gameObject.CompareTag("Bullet"))
             {
                 Invoke(nameof(Death), deathDelay);
             }
@@ -46,7 +38,6 @@ namespace Bubble
 
         private void Death()
         {
-            if (spawnedDashEffect) Destroy(spawnedDashEffect);
             Destroy(gameObject);
         }
 
@@ -67,14 +58,8 @@ namespace Bubble
                     print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
-                    Destroy(spawnedDashEffect);
                 }
             }
-
-            //if (Input.GetKeyDown(KeyCode.E))
-            //{
-            //    Dash();
-            //}
         }
 
         protected override void FixedUpdate()
