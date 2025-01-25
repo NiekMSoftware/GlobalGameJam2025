@@ -76,12 +76,13 @@ namespace Bubble.Enemies
             if (other.gameObject.CompareTag("Bullet") && !other.gameObject.GetComponent<Projectile>().isEnemyBullet
                 && !other.gameObject.GetComponent<Projectile>().hasHitEnemy)
             {
-                Destroy(gameObject);
+                Die();
             }
             
             if (other.gameObject.CompareTag("Spikes"))
             {
-                Destroy(gameObject);
+                print("I AM INTERACTING MOTHER TRUCKER");
+                Die();
             }
         }
 
@@ -136,6 +137,11 @@ namespace Bubble.Enemies
                 return (transform.position - target.position).normalized;
             }
             return Vector2.zero;
+        }
+
+        public void Die()
+        {
+            Destroy(gameObject);
         }
     }
 }

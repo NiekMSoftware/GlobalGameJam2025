@@ -61,10 +61,10 @@ namespace Bubble
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Dash();
-            }
+            // if (Input.GetKeyDown(KeyCode.E))
+            // {
+            //     Dash();
+            // }
         }
 
         protected override void FixedUpdate()
