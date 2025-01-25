@@ -398,8 +398,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3399302383635039766}
   - component: {fileID: 798248517509698607}
-  - component: {fileID: 5928231558675640143}
   - component: {fileID: 6853737520858536411}
+  - component: {fileID: 3658918048434897192}
   m_Layer: 3
   m_Name: Trap.01
   m_TagString: Spikes
@@ -470,22 +470,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.0522933, y: 3.1236262}
   m_EdgeRadius: 0
---- !u!114 &5928231558675640143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556520847902732288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!114 &6853737520858536411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +482,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b613422eb3901944cad2a7055013ca8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3658918048434897192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556520847902732288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 2.1126556, y: 1.8415604, z: 4}
+  m_Center: {x: -0.03254032, y: -0.008752823, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &3767808999595776455
 GameObject:
   m_ObjectHideFlags: 0
