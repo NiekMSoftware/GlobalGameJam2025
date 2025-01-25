@@ -31,7 +31,7 @@ namespace Bubble
 
         protected override void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Bullet"))
+            if (collision.gameObject.CompareTag("Bullet") && !collision.gameObject.GetComponent<Projectile>().isEnemyBullet)
             {
                 Invoke(nameof(Death), deathDelay);
             }

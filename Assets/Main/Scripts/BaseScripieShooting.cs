@@ -4,13 +4,14 @@ namespace Bubble
 {
     public class BaseScripieShooting : MonoBehaviour
     {
-        public Transform FirePoint;
         public GameObject BulletPrefab;
         public float Velocity = 100;
         public float ShootingCooldown = 0.5f;
         public bool mayShootAtStart;
+        public bool isEnemy;
 
         protected Vector2 direction;
+        protected Vector3 shootPos;
 
         private float shootingTimer;
 
@@ -26,8 +27,11 @@ namespace Bubble
 
         protected virtual void Shoot()
         {
+            print("Shooting go brr");
             shootingTimer = ShootingCooldown;
-            GameObject Projectile = Instantiate(BulletPrefab, FirePoint.position, Quaternion.identity);
+            GameObject Projectile = Instantiate(BulletPrefab, shootPos, Quaternion.identity);
+            Projectile projectileScript = Projectile.GetComponent<Projectile>();
+            projectileScript.isEnemyBullet = isEnemy;
             Rigidbody2D ProjectileRB = Projectile.GetComponent<Rigidbody2D>();
             ProjectileRB.AddForce(direction * Velocity, ForceMode2D.Impulse);
         }
