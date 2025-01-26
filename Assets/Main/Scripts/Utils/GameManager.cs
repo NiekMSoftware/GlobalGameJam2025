@@ -25,10 +25,13 @@ namespace Bubble.Utils
 
         [Header("Endless Properties")]
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private float usualOffset = 15f;
         [field: SerializeField] public bool IsEndless { get; private set; }
-        [SerializeField] private int wave;
+        [SerializeField] private float spawnInterval = 2.1f;
+        [SerializeField] private List<GameObject> enemyPrefabs;
 
         private bool _gameOver;
+        private float _timer;
 
         private void Start()
         {
@@ -54,7 +57,7 @@ namespace Bubble.Utils
                 CheckEnemies();
                 CheckCondition();
                 CheckShots();
-                IncrementAndSpawnWave();
+                SpawnBoisEndlessly();
             }
         }
 
@@ -126,18 +129,62 @@ namespace Bubble.Utils
             }
         }
 
-        void IncrementAndSpawnWave()
+        void SpawnBoisEndlessly()
         {
-            // return if there are enemies
-            if (enemies.Count != 0) return;
-            
-            // find a random position within the main camera
-            Vector2 cameraPosition = mainCamera.transform.position;
-            
-            // add a small offset 
-            // pick a random position
-            // spawn enemies
-            // add them to the list
+            if (!IsEndless) return;
+
+            _timer += Time.deltaTime;
+
+            if (_timer >= spawnInterval)
+            {
+                // Find the main camera's position and size
+                Vector2 cameraPosition = mainCamera.transform.position;
+                float cameraHeight = 2f * mainCamera.orthographicSize;
+                float cameraWidth = cameraHeight * mainCamera.aspect;
+
+                // Generate a random position outside the camera view
+                float spawnX, spawnY;
+
+                // Randomly decide which edge of the screen to spawn on (top, bottom, left, or right)
+                int edge = Random.Range(0, 4); // 0: Top, 1: Bottom, 2: Left, 3: Right
+                switch (edge)
+                {
+                    case 0: // Top
+                        spawnX = Random.Range(cameraPosition.x - cameraWidth / 2, cameraPosition.x + cameraWidth / 2);
+                        spawnY = cameraPosition.y + cameraHeight / 2 + usualOffset;
+                        break;
+                    case 1: // Bottom
+                        spawnX = Random.Range(cameraPosition.x - cameraWidth / 2, cameraPosition.x + cameraWidth / 2);
+                        spawnY = cameraPosition.y - cameraHeight / 2 - usualOffset;
+                        break;
+                    case 2: // Left
+                        spawnX = cameraPosition.x - cameraWidth / 2 - usualOffset;
+                        spawnY = Random.Range(cameraPosition.y - cameraHeight / 2, cameraPosition.y + cameraHeight / 2);
+                        break;
+                    case 3: // Right
+                        spawnX = cameraPosition.x + cameraWidth / 2 + usualOffset;
+                        spawnY = Random.Range(cameraPosition.y - cameraHeight / 2, cameraPosition.y + cameraHeight / 2);
+                        break;
+                    default:
+                        spawnX = 0;
+                        spawnY = 0;
+                        break;
+                }
+
+                Vector2 spawnPosition = new Vector2(spawnX, spawnY);
+
+                // Randomly select an enemy prefab from the list
+                if (enemyPrefabs.Count > 0) 
+                {
+                    int randomIndex = Random.Range(0, enemyPrefabs.Count);
+                    GameObject randomEnemyPrefab = enemyPrefabs[randomIndex];
+
+                    // Instantiate the enemy prefab at the calculated spawn position
+                    Instantiate(randomEnemyPrefab, spawnPosition, Quaternion.identity);
+                }
+
+                _timer = 0f;
+            }
         }
         
         public int GetBulletsShot() => shotsFired;
