@@ -13,7 +13,7 @@ namespace Bubble
         protected Vector2 direction;
         protected Vector3 shootPos;
 
-        private float shootingTimer;
+        protected float shootingTimer;
 
         protected virtual void OnEnable()
         {
