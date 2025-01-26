@@ -7,6 +7,9 @@ namespace Bubble.Enemies
     [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(CircleCollider2D))]
     public class GenericAhEnemy : MonoBehaviour
     {
+        [SerializeField] protected float speed;
+        [SerializeField] protected float lerpSpeed;
+
         public Transform lookDir;
 
         [SerializeField] protected NavMeshAgent agent;
@@ -69,7 +72,7 @@ namespace Bubble.Enemies
         protected virtual void FixedUpdate()
         {
             if (!IsTargetInView()) return;
-            
+
             MoveToTarget();
             ClampVelocity();
         }
@@ -116,9 +119,19 @@ namespace Bubble.Enemies
         /// </summary>
         protected void MoveToTarget()
         {
-            if (target == null) return;
-            
-            agent.SetDestination(target.position + (Vector3)StopHuggingTarget());
+            if (!agent || !target) return;
+            agent.SetDestination(target.position);
+            if (rb)
+            {
+                float s = speed * lerpSpeed;
+                Vector2 newPosition = Vector2.Lerp(rb.position, agent.transform.position, Time.deltaTime * s);
+                rb.MovePosition(newPosition);
+            }
+            else
+            {
+                // Fallback: directly interpolate the parent's position
+                transform.position = Vector2.Lerp(transform.position, agent.transform.position, Time.deltaTime * speed);
+            }
 
             Vector2 direction = (target.position - transform.position).normalized;
             

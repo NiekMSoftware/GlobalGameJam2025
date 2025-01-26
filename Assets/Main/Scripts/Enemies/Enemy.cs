@@ -8,8 +8,7 @@ namespace Bubble
 {
     public class Enemy : GenericAhEnemy
     {
-        [SerializeField] private float speed;
-        [SerializeField] private float lerpSpeed;
+
 
         [SerializeField] private Vector2[] dashDir;
         [SerializeField] private float dashForce;
@@ -79,8 +78,9 @@ namespace Bubble
             
             if (!isDashing)
             {
-                Movement();
-                ClampVelocity();
+                base.FixedUpdate();
+                //Movement();
+                //ClampVelocity();
             }
         }
 
