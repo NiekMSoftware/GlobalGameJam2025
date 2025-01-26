@@ -18,6 +18,7 @@ namespace Bubble
             SceneManager.LoadScene(0);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
+            Time.timeScale = 1.0f;
         }
 
         public void StartGame()

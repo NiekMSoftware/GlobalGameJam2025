@@ -136,6 +136,7 @@ namespace Bubble.Utils
         void SpawnBoisEndlessly()
         {
             if (!IsEndless) return;
+            Time.timeScale = 1f;
 
             _timer += Time.deltaTime;
 
