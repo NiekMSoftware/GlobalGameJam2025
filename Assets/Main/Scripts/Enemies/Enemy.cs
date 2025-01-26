@@ -1,4 +1,6 @@
 using Bubble.Enemies;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +11,7 @@ namespace Bubble
         [SerializeField] private float speed;
         [SerializeField] private float lerpSpeed;
 
-        [SerializeField] private Vector2 dashDir;
+        [SerializeField] private Vector2[] dashDir;
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
         [SerializeField] private float deathDelay = 1;
@@ -53,6 +55,7 @@ namespace Bubble
         {
             base.Update();
 
+
             if (isDashing)
             {
                 //agent.enabled = false;
@@ -83,18 +86,34 @@ namespace Bubble
 
         private void Dash()
         {
-            if (!agent) return; 
+                if (!agent) return;
 
-            // disable agent
-            agent.enabled = false;
-            agent.radius = 0.1f;
-            agent.height = 0.1f;
-            agent = null;
+                agent.enabled = false;
+                agent.radius = 0.1f;
+                agent.height = 0.1f;
+                agent = null;
 
-            // add force and instantiate particles
-            rb.AddForce(dashDir * dashForce, ForceMode2D.Impulse);
-            var angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg;
-            spawnedDashEffect = Instantiate(dashEffect, (Vector2)transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                rb.AddForce(dashDir[0] * dashForce, ForceMode2D.Impulse);
+
+                var angle = Mathf.Atan2(dashDir[0].y, dashDir[0].x) * Mathf.Rad2Deg;
+                spawnedDashEffect = Instantiate(dashEffect, (Vector2)transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                StartCoroutine(SecondDash());
+        }
+
+
+        IEnumerator SecondDash()
+        {
+                yield return new WaitForSeconds(0.2f); // cant be lower i dunno why
+                isDashing = true;
+                agent.enabled = false;
+                agent.radius = 0.1f;
+                agent.height = 0.1f;
+                agent = null;
+
+                rb.AddForce(dashDir[1] * dashForce, ForceMode2D.Impulse);
+                var angle = Mathf.Atan2(dashDir[1].y, dashDir[1].x) * Mathf.Rad2Deg;
+                spawnedDashEffect = Instantiate(dashEffect, (Vector2)transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
+                StopCoroutine(SecondDash());
         }
 
         private void Movement()

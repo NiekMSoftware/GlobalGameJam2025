@@ -50,7 +50,7 @@ MonoBehaviour:
   ShootingCooldown: 1
   mayShootAtStart: 1
   isEnemy: 0
-  Transform: {fileID: 0}
+  Transform: {fileID: 7498856135141749785}
   ShootPoint: {fileID: 1778193218279164320}
   cameraShake: {fileID: 0}
   cameraShakeLength: 0.75
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 314288611019082397}
   - component: {fileID: 4893800579475861162}
   - component: {fileID: 4470455098770546546}
-  - component: {fileID: 534879905481548056}
+  - component: {fileID: 6969779680529921304}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1044be96dd6fc5648bae80a79e31ae72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
-  maxVelocity: 6
+  speed: 500
+  maxVelocity: 10
   dragForce: 0.438
 --- !u!114 &953435153108221139
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   MaxHealth: 100
-  AudioSource: {fileID: 534879905481548056}
+  AudioSource: {fileID: 6969779680529921304}
   hitSounds:
   - {fileID: 8300000, guid: 4a420aaf22247cb43b10f2e0c5145a2f, type: 3}
   - {fileID: 8300000, guid: 9e2ffa7dbd9ef2f4fa5494cec8fc2959, type: 3}
@@ -295,7 +295,7 @@ MonoBehaviour:
   - {fileID: 469296085999016620, guid: 5edede01b46d3af44b673c5d647960f9, type: 3}
   - {fileID: 2106604120300182012, guid: 795f5882153d3ac4e879239443a99cb4, type: 3}
   - {fileID: 1883458856598214351, guid: 91823931d3ee1c94899512e7fb11b160, type: 3}
---- !u!82 &534879905481548056
+--- !u!82 &6969779680529921304
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

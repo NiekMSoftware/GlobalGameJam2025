@@ -1,27 +1,23 @@
+using System;
 using Bubble.Utils;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Bubble
 {
     public class EnemyShooting : BaseScripieShooting
     {
-        public float range;
-
         public Transform target;
 
         private float LookInputX, LookInputY;
 
-        //protected override void OnEnable()
-        //{
-        //    base.OnEnable();
-        //}
-
-        protected override bool MayShoot()
+        protected override void OnEnable()
         {
-            if (Vector2.Distance(transform.position, target.position) > range) return false;
+            base.OnEnable();
+        }
 
-            return base.MayShoot();
+        private void Start()
+        {
+            target = FindFirstObjectByType<Player>().transform;
         }
 
         protected override void Update()
