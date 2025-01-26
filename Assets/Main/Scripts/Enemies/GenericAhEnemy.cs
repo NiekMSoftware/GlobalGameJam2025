@@ -9,6 +9,7 @@ namespace Bubble.Enemies
     {
         public Transform lookDir;
 
+
         [SerializeField] protected NavMeshAgent agent;
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
