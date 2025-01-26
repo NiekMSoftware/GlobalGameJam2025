@@ -1,6 +1,6 @@
 using Bubble.Utils;
 using UnityEngine;
-using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace Bubble
 {
@@ -11,6 +11,7 @@ namespace Bubble
         public CameraShake cameraShake;
         public float cameraShakeLength = 0.5f;
         public float cameraShakeIntensity =  0.2f;
+        public Image cooldownIndicator;
 
         private PIM pWayerInpUWUt;
         private Vector3 lookTarget;
@@ -36,6 +37,8 @@ namespace Bubble
                 Transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(LookInputX, -LookInputY) * Mathf.Rad2Deg);
 
             Transform.localEulerAngles += new Vector3(0, 0, 90);
+
+            cooldownIndicator.fillAmount = shootingTimer;
         }
 
         private void Look(Vector2 obj)

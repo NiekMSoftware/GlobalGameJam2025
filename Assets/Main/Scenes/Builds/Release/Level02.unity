@@ -13535,11 +13535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38d7c35cab9c6459ac7f864d5c4858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &1063424802 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5339220767402332972, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
-  m_PrefabInstance: {fileID: 6696043159108934170}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1063548293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29499,21 +29494,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 888711231446220801}
     m_Modifications:
     - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
-      propertyPath: volume
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: DeadPanel
       value: 
       objectReference: {fileID: 1890716273}
-    - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 1063424802}
-    - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
-      propertyPath: DamageInTrigger
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1495628568648801637, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: m_Name
       value: Player
