@@ -33,5 +33,12 @@ namespace Bubble
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
         }
+
+        public void GoToEndlessScene()
+        {
+            SceneManager.LoadSceneAsync(4);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
+        }
     }
 }
