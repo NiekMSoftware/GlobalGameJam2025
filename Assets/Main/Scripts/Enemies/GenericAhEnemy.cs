@@ -107,7 +107,8 @@ namespace Bubble.Enemies
 
         protected virtual void OnTriggerExit2D(Collider2D other) // Return speed of projectile to original
         {
-            bulletRB.linearVelocity = ProjectileVelocity * 2;
+            if (bulletRB != null)
+                bulletRB.linearVelocity = ProjectileVelocity * 2;
         }
 
 

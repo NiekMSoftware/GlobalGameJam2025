@@ -1,3 +1,4 @@
+using System;
 using Bubble.Utils;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace Bubble
             base.OnEnable();
         }
 
+        private void Start()
+        {
+            target = FindFirstObjectByType<Player>().transform;
+        }
 
         protected override void Update()
         {
