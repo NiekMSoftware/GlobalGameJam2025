@@ -22,6 +22,8 @@ namespace Bubble
         private void Start()
         {
             _gm = GetComponent<GameManager>();
+            if (_gm.IsEndless)
+                shotsFiredText.gameObject.SetActive(false);
         }
 
         private void Update()
