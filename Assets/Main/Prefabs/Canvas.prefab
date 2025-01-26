@@ -1435,7 +1435,7 @@ MonoBehaviour:
   - {fileID: 7740328918774933111}
   perfectScore: 9
   mediumScore: 12
-  lowScore: 14
+  lowScore: 20
 --- !u!1 &1903280806603556831
 GameObject:
   m_ObjectHideFlags: 0
