@@ -103,7 +103,7 @@ namespace Bubble
 
         IEnumerator SecondDash()
         {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.2f); // cant be lower i dunno why
                 isDashing = true;
                 agent.enabled = false;
                 agent.radius = 0.1f;
