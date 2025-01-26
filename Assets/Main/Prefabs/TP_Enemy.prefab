@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDir: {fileID: 5982447202324308563}
   agent: {fileID: 6746576755934653619}
+  Particles: {fileID: 0}
   target: {fileID: 0}
   fieldOfView: 69
   socialDistance: 5
