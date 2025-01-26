@@ -15,6 +15,10 @@ namespace Bubble.Enemies
         protected BoxCollider2D box;
         protected CircleCollider2D circle;
 
+        protected bool DoneOnce = false;
+        protected Vector2 ProjectileVelocity;
+        protected Rigidbody2D bulletRB;
+
 
         [SerializeField] protected GameObject Particles;
         [SerializeField] protected Transform target;
@@ -68,7 +72,33 @@ namespace Bubble.Enemies
             ClampVelocity();
         }
 
-        protected virtual void OnTriggerEnter2D(Collider2D other) { }
+        protected virtual void OnTriggerEnter2D(Collider2D other) 
+        {
+            try //Cut speed in half for the projectile when entering trigger but cannot be cut twice
+            {
+                var bullet = other.GetComponent<Projectile>();
+                Instantiate(bullet.Particles, new Vector2(other.transform.position.x, other.transform.position.y), other.transform.rotation);
+
+                bulletRB = bullet.GetComponent<Rigidbody2D>();
+
+                if (!DoneOnce)
+                { 
+                    bulletRB.linearVelocity /= 2;
+                    ProjectileVelocity = bulletRB.linearVelocity;
+                    DoneOnce = false;
+                }
+                else 
+                { 
+                    bulletRB.linearVelocity = ProjectileVelocity;
+                }
+            }
+            catch { }
+        }
+
+        protected virtual void OnTriggerExit2D(Collider2D other) // Return speed of projectile to original
+        {
+            bulletRB.linearVelocity = ProjectileVelocity * 2;
+        }
 
 
         /// <summary>
@@ -126,7 +156,7 @@ namespace Bubble.Enemies
         {
             Destroy(gameObject , 0.5f);
             transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = deadSprite;
-            GetComponent< BoxCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;
             GetComponent<EnemyShooting>().ShootingCooldown = 999f;
         }

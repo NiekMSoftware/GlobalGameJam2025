@@ -1,6 +1,7 @@
 using Bubble;
 using Bubble.Enemies;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -15,11 +16,6 @@ public class Projectile : MonoBehaviour
     public GameObject Particles; 
 
     [SerializeField] private float BulletLifeTime = 3f;
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    gameObject.GetComponent<Collider2D>().enabled = true;
-    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -47,7 +43,7 @@ public class Projectile : MonoBehaviour
     private void OnDestroy()
     {
         if (Particles != null)
-            Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
+            Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), transform.rotation);
     }
 
 }

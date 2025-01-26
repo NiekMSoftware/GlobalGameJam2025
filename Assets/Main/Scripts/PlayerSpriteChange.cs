@@ -16,7 +16,7 @@ namespace Bubble
         // Update is called once per frame
         void FixedUpdate()
         {
-            print(rb.linearVelocity + "Hi");
+           // print(rb.linearVelocity + "Hi");
 
             if(rb.linearVelocity != Vector2.zero)
             {
