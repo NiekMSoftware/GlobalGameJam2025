@@ -199,6 +199,7 @@ MonoBehaviour:
   ShootingCooldown: 1
   mayShootAtStart: 0
   isEnemy: 1
+  range: 0
   target: {fileID: 0}
 --- !u!50 &1352828729471111616
 Rigidbody2D:
