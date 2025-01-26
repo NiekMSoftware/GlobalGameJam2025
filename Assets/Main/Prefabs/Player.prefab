@@ -236,7 +236,7 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   DeadPanel: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6969779680529921304}
   hitSounds:
   - {fileID: 8300000, guid: 4a420aaf22247cb43b10f2e0c5145a2f, type: 3}
   - {fileID: 8300000, guid: 9e2ffa7dbd9ef2f4fa5494cec8fc2959, type: 3}
