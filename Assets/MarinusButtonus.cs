@@ -7,10 +7,10 @@ namespace Bubble
     {
         public void RestartLevel()
         {
+            Time.timeScale = 1.0f;
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
-            Time.timeScale = 1.0f;
         }
 
         public void MainMenu()

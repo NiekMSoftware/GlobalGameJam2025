@@ -3205,7 +3205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1493633567}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &377338373
@@ -11198,6 +11198,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1493633567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 372377443354170507, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
+  m_PrefabInstance: {fileID: 1890716272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1499641243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13482,6 +13487,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3417620899243047702, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
+      propertyPath: startWinButton
+      value: 
+      objectReference: {fileID: 1493633567}
     - target: {fileID: 7029783795163841997, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
