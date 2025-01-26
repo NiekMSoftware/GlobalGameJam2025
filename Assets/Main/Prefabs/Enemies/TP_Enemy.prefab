@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookDir: {fileID: 5982447202324308563}
   agent: {fileID: 6746576755934653619}
-  Particles: {fileID: 0}
+  Particles: {fileID: 5343619669421914503, guid: 7bf81b7b573fd57419efd6c80bfb6ef7, type: 3}
   target: {fileID: 0}
   fieldOfView: 69
   socialDistance: 5
@@ -206,7 +206,7 @@ MonoBehaviour:
   ShootingCooldown: 1
   mayShootAtStart: 0
   isEnemy: 1
-  target: {fileID: 0}
+  target: {fileID: 2511262639851809637, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
 --- !u!195 &6746576755934653619
 NavMeshAgent:
   m_ObjectHideFlags: 0

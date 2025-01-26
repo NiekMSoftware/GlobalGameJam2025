@@ -9,10 +9,10 @@ namespace Bubble
 
         private float LookInputX, LookInputY;
 
-        //protected override void OnEnable()
-        //{
-        //    base.OnEnable();
-        //}
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+        }
 
 
         protected override void Update()
