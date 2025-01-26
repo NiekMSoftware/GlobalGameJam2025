@@ -5,10 +5,6 @@ namespace Bubble
 {
     public class MarinusButtonus : MonoBehaviour
     {
-        public Scene Level01;
-        public Scene Level02;
-        public Scene StartingScreen;
-        
         public void RestartLevel()
         {
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
@@ -19,23 +15,23 @@ namespace Bubble
 
         public void MainMenu()
         {
-            SceneManager.LoadScene(StartingScreen.buildIndex);
+            SceneManager.LoadScene(0);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(StartingScreen.buildIndex));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
         }
 
         public void StartGame()
         {
-            SceneManager.LoadSceneAsync(Level01.buildIndex);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(Level01.buildIndex));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
         }
 
         public void GoToLevel2()
         {
-            SceneManager.LoadSceneAsync(Level02.buildIndex);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(Level02.buildIndex));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex));
         }
     }
 }
