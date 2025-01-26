@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Bubble.Enemies
 {
@@ -79,6 +80,10 @@ namespace Bubble.Enemies
 
             Vector2 newPos = firePointPosition + backDirection;
             transform.position = newPos;
+
+            agent.SamplePathPosition(NavMesh.AllAreas, Mathf.Infinity, out NavMeshHit hit);
+
+            transform.position = hit.position;
         }
     }
 }
