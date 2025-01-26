@@ -39,7 +39,7 @@ namespace Bubble
             if (collision.gameObject.CompareTag("Bullet"))
             {
                 print($"I collided with: {collision.gameObject.name}");
-                Destroy(gameObject);
+                Die();
             }
         }
 
