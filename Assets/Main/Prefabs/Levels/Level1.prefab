@@ -1341,10 +1341,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7002041777359248141, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
-      propertyPath: dashDir.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.63
@@ -11497,6 +11493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 888711231324762567}
     m_Modifications:
+    - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: hitSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1495628568648801637, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: m_Name
       value: Player

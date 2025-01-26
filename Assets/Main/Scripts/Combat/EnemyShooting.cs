@@ -1,10 +1,13 @@
 using Bubble.Utils;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Bubble
 {
     public class EnemyShooting : BaseScripieShooting
     {
+        public float range;
+
         public Transform target;
 
         private float LookInputX, LookInputY;
@@ -14,6 +17,12 @@ namespace Bubble
         //    base.OnEnable();
         //}
 
+        protected override bool MayShoot()
+        {
+            if (Vector2.Distance(transform.position, target.position) > range) return false;
+
+            return base.MayShoot();
+        }
 
         protected override void Update()
         {

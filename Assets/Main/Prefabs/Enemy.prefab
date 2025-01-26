@@ -146,6 +146,7 @@ MonoBehaviour:
   ShootingCooldown: 1
   mayShootAtStart: 0
   isEnemy: 1
+  range: 10
   target: {fileID: 0}
 --- !u!50 &1352828729471111616
 Rigidbody2D:
@@ -306,14 +307,14 @@ MonoBehaviour:
   agent: {fileID: 298349840984533677}
   Particles: {fileID: 5343619669421914503, guid: 7bf81b7b573fd57419efd6c80bfb6ef7, type: 3}
   target: {fileID: 0}
-  fieldOfView: 69
+  fieldOfView: 10
   socialDistance: 5
   moveSpeed: 3
   maxSpeed: 2
   deadSprite: {fileID: 21300000, guid: c1cd4e4057f942c4ab9c8fd7f02d57eb, type: 3}
   speed: 1
   lerpSpeed: 0
-  dashDir: {x: -1, y: 0}
+  dashDir: {x: 1, y: 0}
   dashForce: 3
   dashTime: 0.2
   deathDelay: 0.1
@@ -343,13 +344,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6909342191174944942}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8984208024822082497}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
 --- !u!212 &6013417674051440187
 SpriteRenderer:
   m_ObjectHideFlags: 0
