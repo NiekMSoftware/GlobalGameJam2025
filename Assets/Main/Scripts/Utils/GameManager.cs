@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Bubble.Enemies;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
 namespace Bubble.Utils
@@ -32,6 +33,10 @@ namespace Bubble.Utils
         [SerializeField] private List<GameObject> enemyPrefabs;
 
         [SerializeField] private GameObject startWinButton;
+
+        public AudioSource audioSource;
+
+        public AudioClip[] winSounds;
 
         private bool _gameOver;
         private float _timer;
@@ -82,6 +87,7 @@ namespace Bubble.Utils
                 starContainer.SetActive(true);
                 ShowScore();
                 FindAnyObjectByType<EventSystem>().SetSelectedGameObject(startWinButton);
+                PlayRandomSoundFromList(winSounds);
                 _gameOver = true;
             }
         }
@@ -192,5 +198,12 @@ namespace Bubble.Utils
         }
         
         public int GetBulletsShot() => shotsFired;
+
+        private void PlayRandomSoundFromList(AudioClip[] list)
+        {
+            AudioClip audioClip = list[Random.Range(0, list.Length)];
+            audioSource.clip = audioClip;
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 }
