@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc76b2cea30962c41b65f0b6dafecff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 3445882876682007641, guid: fdc8c513af9607f4f81aa7ff9fd6c170, type: 3}
+  BulletPrefab: {fileID: 3445882876682007641, guid: 24cd9beea89a8da47ab20d26fa3e1fea, type: 3}
   Velocity: 0.8
   ShootingCooldown: 1.2
   mayShootAtStart: 0
@@ -1194,7 +1194,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.69
+    radiusThickness: 0.22
     donutRadius: 0.05
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
