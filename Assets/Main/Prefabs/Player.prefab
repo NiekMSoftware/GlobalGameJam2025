@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1044be96dd6fc5648bae80a79e31ae72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  maxVelocity: 10
+  speed: 250
+  maxVelocity: 6
   dragForce: 0.438
 --- !u!114 &953435153108221139
 MonoBehaviour:
@@ -219,6 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   MaxHealth: 100
+  AudioSource: {fileID: 0}
+  hitSounds: []
+  deathSounds: []
 --- !u!61 &4893800579475861162
 BoxCollider2D:
   m_ObjectHideFlags: 0
