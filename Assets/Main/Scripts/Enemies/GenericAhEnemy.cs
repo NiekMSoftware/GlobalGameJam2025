@@ -1,6 +1,7 @@
 using Bubble.Temp;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.ParticleSystem;
 
 namespace Bubble.Enemies
 {
@@ -13,12 +14,15 @@ namespace Bubble.Enemies
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
         protected CircleCollider2D circle;
-        
+
+
+        [SerializeField] protected GameObject Particles;
         [SerializeField] protected Transform target;
         [SerializeField] protected float fieldOfView;
         [SerializeField] protected float socialDistance;
         [Space, SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;
+        [SerializeField] private Sprite deadSprite;
 
         protected virtual void OnValidate()
         {
@@ -121,6 +125,15 @@ namespace Bubble.Enemies
         public void Die()
         {
             Destroy(gameObject , 1f);
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = deadSprite;
+            GetComponent< BoxCollider2D>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<EnemyShooting>().ShootingCooldown = 999f;
         }
+            private void OnDestroy()
+            {
+                if (Particles != null)
+                    Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
+            }
     }
 }
