@@ -136,7 +136,6 @@ MonoBehaviour:
   enemyBulletLayer: 8
   playerBulletLayer: 7
   damage: 5
-  hasHitEnemy: 0
   Particles: {fileID: 7263531228741645489, guid: 38ed083ea7c426b4780ee49bb9b3f13c, type: 3}
   BulletLifeTime: 3
 --- !u!58 &8214252516145233057

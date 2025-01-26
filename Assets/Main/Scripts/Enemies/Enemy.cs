@@ -1,11 +1,14 @@
 using Bubble.Enemies;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Bubble
 {
     public class Enemy : GenericAhEnemy
     {
         [SerializeField] private float speed;
+        [SerializeField] private float lerpSpeed;
+
         [SerializeField] private Vector2 dashDir;
         [SerializeField] private float dashForce;
         [SerializeField] private float dashTime;
@@ -26,17 +29,19 @@ namespace Bubble
         {
             if (collision.CompareTag("Bullet"))
             {
+                isDashing = true;
                 Dash();
             }
         }
 
-        //protected void OnCollisionEnter2D(Collision2D collision)
-        //{
-        //    if (collision.gameObject.CompareTag("Bullet"))
-        //    {
-        //        Invoke(nameof(Death), deathDelay);
-        //    }
-        //}
+        protected void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                print($"I collided with: {collision.gameObject.name}");
+                Destroy(gameObject);
+            }
+        }
 
         //private void Death()
         //{
@@ -49,15 +54,15 @@ namespace Bubble
 
             if (isDashing)
             {
+                //agent.enabled = false;
                 dashTimer -= Time.deltaTime;
 
                 if (dashTimer <= 0)
                 {
+                    agent = GetComponentInChildren<NavMeshAgent>();
+                    agent.enabled = true;
                     agent.speed = 3.5f;
                     agent.acceleration = 8f;
-                    //agent.autoBraking = true;
-
-                    print("Nah dashing");
                     dashTimer = dashTime;
                     isDashing = false;
                 }
@@ -70,39 +75,42 @@ namespace Bubble
             
             if (!isDashing)
             {
-                MoveToTarget();
+                Movement();
                 ClampVelocity();
             }
-
-            //agent.SetDestination(target.position);
         }
 
         private void Dash()
         {
-            isDashing = true;
-            print("Dash!");
-            //agent.enabled = false;
-            agent.speed = 100;
-            //agent.autoBraking = false;
-            agent.acceleration = 1000;
-            agent.SetDestination((Vector2)transform.position + (dashDir * dashForce));
-            //rb.linearVelocity = dashDir * dashForce;
-            //agent.enabled = true;
+            if (!agent) return; 
 
+            // disable agent
+            agent.enabled = false;
+            agent.radius = 0.1f;
+            agent.height = 0.1f;
+            agent = null;
+
+            // add force and instantiate particles
+            rb.AddForce(dashDir * dashForce, ForceMode2D.Impulse);
             var angle = Mathf.Atan2(dashDir.y, dashDir.x) * Mathf.Rad2Deg;
-
             spawnedDashEffect = Instantiate(dashEffect, (Vector2)transform.position, Quaternion.AngleAxis(angle - 90, Vector3.forward));
         }
 
-        //private void Movement()
-        //{
-        //    if (!target) return;
-
-        //    Vector3 moveDir = target.position - transform.position;
-
-        //    //moveDir.Normalize();
-
-        //    rb.linearVelocity = moveDir * speed;
-        //}
+        private void Movement()
+        {
+            if (!agent || !target) return;
+            agent.SetDestination(target.position);
+            if (rb)
+            {
+                float s = speed * lerpSpeed;
+                Vector2 newPosition = Vector2.Lerp(rb.position, agent.transform.position, Time.deltaTime * s);
+                rb.MovePosition(newPosition);
+            }
+            else
+            {
+                // Fallback: directly interpolate the parent's position
+                transform.position = Vector2.Lerp(transform.position, agent.transform.position, Time.deltaTime * speed);
+            }
+        }
     }
 }

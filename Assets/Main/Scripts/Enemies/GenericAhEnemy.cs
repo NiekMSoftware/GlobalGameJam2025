@@ -38,7 +38,7 @@ namespace Bubble.Enemies
             rb = GetComponent<Rigidbody2D>();
             box = GetComponent<BoxCollider2D>();
             circle = GetComponent<CircleCollider2D>();
-            agent = GetComponent<NavMeshAgent>();
+            agent = GetComponentInChildren<NavMeshAgent>();
             
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             
