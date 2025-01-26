@@ -730,11 +730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7002041777359248141, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: dashDir.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7002041777359248141, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: dashDir.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4400,6 +4400,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7002041777359248141, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
       propertyPath: dashDir.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002041777359248141, guid: c67bf7a54257403499a9d06e53d52746, type: 3}
+      propertyPath: dashDir.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8984208024822082497, guid: c67bf7a54257403499a9d06e53d52746, type: 3}

@@ -17,9 +17,9 @@ namespace Bubble
         {
             if(currentLevel.enemyParent.transform.childCount < 1)
             {
-                KillLevel();
                 if (current < levels.Length)
                 {
+                    KillLevel();
                     SpawnLevel();
                 }
                 else
@@ -39,7 +39,7 @@ namespace Bubble
 
         public void KillLevel()
         {
-            Destroy(currentLevel);
+            Destroy(currentLevel.gameObject);
         }
     }
 }
