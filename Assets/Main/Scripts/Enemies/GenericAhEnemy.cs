@@ -9,7 +9,6 @@ namespace Bubble.Enemies
     {
         public Transform lookDir;
 
-
         [SerializeField] protected NavMeshAgent agent;
         protected Rigidbody2D rb;
         protected BoxCollider2D box;
@@ -92,7 +91,7 @@ namespace Bubble.Enemies
 
                 if (!DoneOnce)
                 { 
-                    bulletRB.linearVelocity /= 2;
+                    bulletRB.linearVelocity /= 3;
                     ProjectileVelocity = bulletRB.linearVelocity;
                     DoneOnce = false;
                 }
