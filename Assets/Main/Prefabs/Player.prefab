@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
-  Velocity: 3
+  Velocity: 5
   ShootingCooldown: 1
   mayShootAtStart: 1
   isEnemy: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38d7c35cab9c6459ac7f864d5c4858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 5339220767402332972}
   DamageInTrigger: 0
   Health: 100
   MaxHealth: 100
