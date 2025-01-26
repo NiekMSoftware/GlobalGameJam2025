@@ -1,6 +1,7 @@
 using Bubble.Temp;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 namespace Bubble.Enemies
 {
@@ -31,6 +32,10 @@ namespace Bubble.Enemies
         [Space, SerializeField] protected float moveSpeed;
         [SerializeField] protected float maxSpeed;
         [SerializeField] private Sprite deadSprite;
+
+        public AudioSource audioSource;
+
+        public AudioClip[] deathSounds;
 
         protected virtual void OnValidate()
         {
@@ -182,11 +187,18 @@ namespace Bubble.Enemies
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;
             GetComponent<EnemyShooting>().ShootingCooldown = 999f;
+            PlayRandomSoundFromList(deathSounds);
         }
-            private void OnDestroy()
-            {
-                if (Particles != null)
-                    Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
-            }
+        private void OnDestroy()
+        {
+            if (Particles != null)
+                Instantiate(Particles, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), gameObject.transform.rotation);
+        }
+        private void PlayRandomSoundFromList(AudioClip[] list)
+        {
+            AudioClip audioClip = list[Random.Range(0, list.Length)];
+            audioSource.clip = audioClip;
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 }

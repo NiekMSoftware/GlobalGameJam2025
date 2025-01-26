@@ -1,6 +1,7 @@
 using System;
 using Bubble.Utils;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Bubble
 {
@@ -11,6 +12,9 @@ namespace Bubble
         public Transform target;
 
         private float LookInputX, LookInputY;
+        public AudioSource audioSource;
+
+        public AudioClip[] shootSounds;
 
         protected override void OnEnable()
         {
@@ -39,7 +43,7 @@ namespace Bubble
 
             direction.Normalize();
 
-            if (MayShoot()) Shoot();
+            if (MayShoot()) { Shoot(); PlayRandomSoundFromList(shootSounds); }
         }
 
 
@@ -47,6 +51,13 @@ namespace Bubble
         {
             LookInputX = obj.x;
             LookInputY = obj.y;
+        }
+
+        private void PlayRandomSoundFromList(AudioClip[] list)
+        {
+            AudioClip audioClip = list[UnityEngine.Random.Range(0, list.Length)];
+            audioSource.clip = audioClip;
+            audioSource.PlayOneShot(audioClip);
         }
 
         //private void OnEnable()// Subscribe function to events
