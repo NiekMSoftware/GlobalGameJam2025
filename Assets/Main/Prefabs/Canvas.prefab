@@ -850,7 +850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &689633537379882340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1298,6 +1298,7 @@ GameObject:
   - component: {fileID: 2391888955942284307}
   - component: {fileID: 350492428363694962}
   - component: {fileID: 2133206623751566731}
+  - component: {fileID: 3417620899243047702}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1407,6 +1408,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 6017694620787856617}
   player: {fileID: 0}
+--- !u!114 &3417620899243047702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757017193529062676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5496f798b69fe44af4767440d0d0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  playerShoot: {fileID: 0}
+  <Tick>k__BackingField: 2
+  shotsFired: 0
+  starContainer: {fileID: 1365955989795759222}
+  goldenStars:
+  - {fileID: 1743731170860220275}
+  - {fileID: 1747118608262800390}
+  - {fileID: 1119501617240006892}
+  whiteStars:
+  - {fileID: 398326599290318102}
+  - {fileID: 6525056778915741120}
+  - {fileID: 7740328918774933111}
+  perfectScore: 9
+  mediumScore: 12
+  lowScore: 14
 --- !u!1 &1903280806603556831
 GameObject:
   m_ObjectHideFlags: 0
