@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Bubble.Enemies;
 using UnityEngine;
@@ -119,5 +118,7 @@ namespace Bubble.Utils
                 }
             }
         }
+        
+        public int GetBulletsShot() => shotsFired;
     }
 }

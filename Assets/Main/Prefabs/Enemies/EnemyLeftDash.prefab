@@ -335,6 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c08bf4122e4b4c46925ef7d4969ee6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  lerpSpeed: 2
   lookDir: {fileID: 410190819656732809}
   agent: {fileID: 2994893842010507357}
   Particles: {fileID: 5343619669421914503, guid: 7bf81b7b573fd57419efd6c80bfb6ef7, type: 3}
@@ -344,8 +346,6 @@ MonoBehaviour:
   moveSpeed: 3
   maxSpeed: 2
   deadSprite: {fileID: 21300000, guid: c1cd4e4057f942c4ab9c8fd7f02d57eb, type: 3}
-  speed: 1
-  lerpSpeed: 2
   dashDir:
   - {x: -1, y: 0}
   dashForce: 3
