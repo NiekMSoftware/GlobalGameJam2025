@@ -6,6 +6,8 @@ namespace Bubble
 {
     public class EnemyShooting : BaseScripieShooting
     {
+        public float range;
+
         public Transform target;
 
         private float LookInputX, LookInputY;
@@ -18,6 +20,13 @@ namespace Bubble
         private void Start()
         {
             target = FindFirstObjectByType<Player>().transform;
+        }
+
+        protected override bool MayShoot()
+        {
+            if (Vector2.Distance(transform.position, target.position) > range) return false;
+
+            return base.MayShoot();
         }
 
         protected override void Update()
