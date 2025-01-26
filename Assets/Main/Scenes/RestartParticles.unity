@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideArea: 1
-  m_Area: 1
+  m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
 --- !u!1 &194353970
@@ -1764,6 +1764,10 @@ PrefabInstance:
     - target: {fileID: 2738358949555915004, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417620899243047702, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
+      propertyPath: <IsEndless>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7029783795163841997, guid: 8ecf35362d4d35e488957e01e3d4905a, type: 3}
       propertyPath: m_Pivot.x

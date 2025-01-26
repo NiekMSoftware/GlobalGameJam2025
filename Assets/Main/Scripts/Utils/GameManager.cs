@@ -25,7 +25,7 @@ namespace Bubble.Utils
 
         [Header("Endless Properties")]
         [SerializeField] private Camera mainCamera;
-        [SerializeField] private bool isEndless;
+        [field: SerializeField] public bool IsEndless { get; private set; }
         [SerializeField] private int wave;
 
         private bool _gameOver;
@@ -71,7 +71,7 @@ namespace Bubble.Utils
 
         private void CheckCondition()
         {
-            if (enemies.Count == 0 && !isEndless)
+            if (enemies.Count == 0 && !IsEndless)
             {
                 starContainer.SetActive(true);
                 ShowScore();
