@@ -199,8 +199,10 @@ namespace Bubble.Utils
         public void OnR(InputAction.CallbackContext context)
         {
             if (context.phase == InputActionPhase.Started)
-            { 
+            {
+                SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
             }
         }
     }

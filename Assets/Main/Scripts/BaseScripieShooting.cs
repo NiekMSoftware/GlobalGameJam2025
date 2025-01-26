@@ -5,7 +5,7 @@ namespace Bubble
     public class BaseScripieShooting : MonoBehaviour
     {
         public GameObject BulletPrefab;
-        public float Velocity = 100;
+        public float Velocity = 50;
         public float ShootingCooldown = 0.5f;
         public bool mayShootAtStart;
         public bool isEnemy;
