@@ -41,7 +41,7 @@ namespace Bubble
         {
             if (!MayShoot()) return;
 
-            shootPos = ShootPoint.position;
+                shootPos = ShootPoint.position;
 
             base.Shoot();
 
