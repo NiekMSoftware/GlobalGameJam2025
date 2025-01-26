@@ -206,6 +206,7 @@ MonoBehaviour:
   ShootingCooldown: 1.2
   mayShootAtStart: 0
   isEnemy: 1
+  range: 0
   target: {fileID: 2511262639851809637, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
 --- !u!195 &6746576755934653619
 NavMeshAgent:
