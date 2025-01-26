@@ -16482,6 +16482,26 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1099060916}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: shootSounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: 'shootSounds.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f45ea559b166324469cd27cef8e74ff0, type: 3}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: 'shootSounds.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b55422d2d968774dba2dd00aa6deb4a, type: 3}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: 'shootSounds.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e7352b5bf47cc44a8dd4e43bb840285, type: 3}
+    - target: {fileID: 9038520761822508252, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: 'shootSounds.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e2af4fa1c8e73ac489c4ad8151705797, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
-  Velocity: 5
+  Velocity: 3
   ShootingCooldown: 1
   mayShootAtStart: 1
   isEnemy: 0
@@ -55,6 +55,13 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   cameraShakeLength: 0.75
   cameraShakeIntensity: 0.25
+  audioSource: {fileID: 6969779680529921304}
+  shootSounds:
+  - {fileID: 8300000, guid: 616ef0dcd77814d4ebaa04c61eed0a8e, type: 3}
+  - {fileID: 8300000, guid: f45ea559b166324469cd27cef8e74ff0, type: 3}
+  - {fileID: 8300000, guid: 9b55422d2d968774dba2dd00aa6deb4a, type: 3}
+  - {fileID: 8300000, guid: 6e7352b5bf47cc44a8dd4e43bb840285, type: 3}
+  - {fileID: 8300000, guid: e2af4fa1c8e73ac489c4ad8151705797, type: 3}
 --- !u!1 &1495628568648801637
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +230,7 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   DeadPanel: {fileID: 0}
-  AudioSource: {fileID: 6969779680529921304}
+  audioSource: {fileID: 0}
   hitSounds:
   - {fileID: 8300000, guid: 4a420aaf22247cb43b10f2e0c5145a2f, type: 3}
   - {fileID: 8300000, guid: 9e2ffa7dbd9ef2f4fa5494cec8fc2959, type: 3}

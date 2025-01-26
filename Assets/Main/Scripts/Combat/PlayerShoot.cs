@@ -1,5 +1,6 @@
 using Bubble.Utils;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Bubble
 {
@@ -14,7 +15,11 @@ namespace Bubble
         private PIM pWayerInpUWUt;
         private Vector3 lookTarget;
         private float LookInputX, LookInputY;
-        
+
+        public AudioSource audioSource;
+
+        public AudioClip[] shootSounds;
+
         public int ShotsFired { get; private set; }
 
         protected override void Update()
@@ -45,9 +50,11 @@ namespace Bubble
             ShotsFired++;
 
             shootPos = ShootPoint.position;
+            PlayRandomSoundFromList(shootSounds);
             base.Shoot();
             cameraShake.Shake(cameraShakeLength, cameraShakeIntensity);
         }
+
 
         protected override void OnEnable()// Subscribe function to events
         {
@@ -71,6 +78,12 @@ namespace Bubble
         {
             pWayerInpUWUt.BasicAttackEvent -= Shoot;
             pWayerInpUWUt.LookEvent -= Look;
+        }
+        private void PlayRandomSoundFromList(AudioClip[] list)
+        {
+            AudioClip audioClip = list[Random.Range(0, list.Length)];
+            audioSource.clip = audioClip;
+            audioSource.PlayOneShot(audioClip);
         }
     }
 }
