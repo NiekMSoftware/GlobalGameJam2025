@@ -14,7 +14,7 @@ namespace Bubble
         public int MaxHealth;
     
         public GameObject DeadPanel;
-        public AudioSource AudioSource;
+        public AudioSource audioSource;
 
         public AudioClip[] hitSounds;
         public AudioClip[] deathSounds;
@@ -99,8 +99,8 @@ namespace Bubble
         private void PlayRandomSoundFromList(AudioClip[] list)
         {
             AudioClip audioClip = list[Random.Range(0, list.Length)];
-            AudioSource.clip = audioClip;
-            AudioSource.PlayOneShot(audioClip);
+            audioSource.clip = audioClip;
+            audioSource.PlayOneShot(audioClip);
         }
     }
 }
