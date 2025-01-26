@@ -24,6 +24,7 @@ namespace Bubble
                 }
                 else
                 {
+                    //Add ending here or smthin
                     print("I hate you.");
                 }
             }
