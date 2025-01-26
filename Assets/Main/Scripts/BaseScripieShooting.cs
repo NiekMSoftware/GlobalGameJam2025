@@ -37,7 +37,7 @@ namespace Bubble
             projectileScript.Owner = gameObject;
         }
 
-        protected bool MayShoot()
+        protected virtual bool MayShoot()
         {
             return shootingTimer <= 0;
         }
