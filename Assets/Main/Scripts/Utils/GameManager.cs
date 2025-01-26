@@ -13,7 +13,18 @@ namespace Bubble.Utils
         [field: SerializeField] public float Tick { get; private set; }
         private float _tickTimer;
 
-        [SerializeField] private int shotsFired = 0;
+        [SerializeField] private int shotsFired;
+
+        [Header("Score schtuff.")] 
+        [SerializeField] private GameObject starContainer;
+        [SerializeField] private GameObject[] goldenStars;
+        [SerializeField] private GameObject[] whiteStars;
+        
+        [SerializeField] private int perfectScore;
+        [SerializeField] private int mediumScore;
+        [SerializeField] private int lowScore;
+
+        private bool _gameOver;
 
         private void Start()
         {
@@ -32,7 +43,7 @@ namespace Bubble.Utils
         {
             _tickTimer += Time.deltaTime;
             
-            if (_tickTimer >= Tick)
+            if (_tickTimer >= Tick && !_gameOver)
             {
                 _tickTimer -= Tick;
                 CheckEnemies();
@@ -56,13 +67,57 @@ namespace Bubble.Utils
         {
             if (enemies.Count == 0)
             {
-                Debug.Log("Woah you won!");
+                starContainer.SetActive(true);
+                ShowScore();
+                _gameOver = true;
             }
         }
 
         private void CheckShots()
         {
             shotsFired = playerShoot.ShotsFired;
+        }
+
+        public void ShowScore()
+        {
+            foreach (GameObject star in goldenStars)
+            {
+                star.SetActive(false);
+            }
+            
+            foreach (GameObject t in whiteStars)
+            {
+                t.SetActive(false);
+            }
+            
+            if (shotsFired <= perfectScore)
+            {
+                foreach (GameObject star in goldenStars)
+                {
+                    star.SetActive(true);
+                }
+            }
+            else if (shotsFired <= mediumScore)
+            {
+                goldenStars[0].SetActive(true);
+                goldenStars[2].SetActive(true);
+                
+                whiteStars[1].SetActive(true);
+            }
+            else if (shotsFired <= lowScore)
+            {
+                goldenStars[0].SetActive(true);
+                
+                whiteStars[1].SetActive(true);
+                whiteStars[2].SetActive(true);
+            }
+            else
+            {
+                foreach (GameObject t in whiteStars)
+                {
+                    t.SetActive(true);
+                }
+            }
         }
     }
 }
