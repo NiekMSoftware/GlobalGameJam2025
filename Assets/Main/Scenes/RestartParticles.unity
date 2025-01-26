@@ -1013,23 +1013,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1224281695 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2909712171895123862, guid: 993da968b4ad8354bbe332c6e4752fdd, type: 3}
-  m_PrefabInstance: {fileID: 1906022847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1224281698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224281695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1228059366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1471,6 +1454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38d7c35cab9c6459ac7f864d5c4858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1857408153 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5339220767402332972, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+  m_PrefabInstance: {fileID: 7548183761023787383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1882247533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1595,10 +1583,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2909712171895123862, guid: 993da968b4ad8354bbe332c6e4752fdd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224281698}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 993da968b4ad8354bbe332c6e4752fdd, type: 3}
 --- !u!114 &2082892826 stripped
 MonoBehaviour:
@@ -1951,6 +1936,10 @@ PrefabInstance:
       propertyPath: MaxHealth
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 314288611019082397, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1857408153}
     - target: {fileID: 494523452497898683, guid: 9a1f3a0ab01a57f47bc5dc34edfdf8ed, type: 3}
       propertyPath: m_Layer
       value: 10

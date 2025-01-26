@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3445882876682007641, guid: 6bac8a25fac22204ba0b383537fcea37, type: 3}
-  Velocity: 3
+  Velocity: 5
   ShootingCooldown: 1
   mayShootAtStart: 1
   isEnemy: 0
@@ -218,8 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38d7c35cab9c6459ac7f864d5c4858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  DamageInTrigger: 0
   Health: 100
   MaxHealth: 100
+  DeadPanel: {fileID: 0}
   AudioSource: {fileID: 6969779680529921304}
   hitSounds:
   - {fileID: 8300000, guid: 4a420aaf22247cb43b10f2e0c5145a2f, type: 3}
