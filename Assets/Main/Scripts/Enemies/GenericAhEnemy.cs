@@ -1,7 +1,6 @@
 using Bubble.Temp;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.ParticleSystem;
 
 namespace Bubble.Enemies
 {
@@ -19,6 +18,8 @@ namespace Bubble.Enemies
         protected Vector2 ProjectileVelocity;
         protected Rigidbody2D bulletRB;
 
+        private float projectileTimer = 0.8f; //Zorgt dat je niet twee keer op dezelfde trigger van dezelfde enemy instance een particle kan maken 
+        private float projectileTimerCount = 0; 
 
         [SerializeField] protected GameObject Particles;
         [SerializeField] protected Transform target;
@@ -57,11 +58,12 @@ namespace Bubble.Enemies
 
         protected virtual void Update()
         {
+            projectileTimerCount -= Time.deltaTime;
             if (!IsTargetInView())
             {
-                print("Not finna move man");
                 return;
             }
+
         }
 
         protected virtual void FixedUpdate()
@@ -74,12 +76,18 @@ namespace Bubble.Enemies
 
         protected virtual void OnTriggerEnter2D(Collider2D other) 
         {
-            try //Cut speed in half for the projectile when entering trigger but cannot be cut twice
+            try //Cut speed in half for the projectile when entering trigger but cannot be cut twice 
             {
                 var bullet = other.GetComponent<Projectile>();
-                Instantiate(bullet.Particles, new Vector2(other.transform.position.x, other.transform.position.y), other.transform.rotation);
-
                 bulletRB = bullet.GetComponent<Rigidbody2D>();
+
+                if (projectileTimerCount < 0) // does not proc twice because projectileTimerCount
+                { 
+
+                    Instantiate(bullet.Particles, new Vector2(other.transform.position.x, other.transform.position.y), other.transform.rotation);
+
+                    projectileTimerCount = projectileTimer;
+                }
 
                 if (!DoneOnce)
                 { 
@@ -91,6 +99,7 @@ namespace Bubble.Enemies
                 { 
                     bulletRB.linearVelocity = ProjectileVelocity;
                 }
+                
             }
             catch { }
         }
