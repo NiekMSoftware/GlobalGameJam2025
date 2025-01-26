@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7471532649345384934}
   - component: {fileID: 8297289667262541890}
   - component: {fileID: 3123122007129687795}
+  - component: {fileID: 1586163664107988144}
   m_Layer: 0
   m_Name: BubbleDashEffect
   m_TagString: Untagged
@@ -48,7 +49,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4891,3 +4892,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1586163664107988144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117922653777725540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e963009f6ca9b942b1aa5722a285b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

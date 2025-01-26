@@ -38,6 +38,7 @@ namespace Bubble.Enemies
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D (other);
             if (other.CompareTag("Bullet") && !_teleporting)
             {
                 other.GetComponent<Projectile>().Owner.TryGetComponent(out PlayerShoot player);

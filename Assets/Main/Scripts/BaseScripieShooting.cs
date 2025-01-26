@@ -28,10 +28,10 @@ namespace Bubble
         protected virtual void Shoot()
         {
             shootingTimer = ShootingCooldown;
-            GameObject Projectile = Instantiate(BulletPrefab, shootPos, Quaternion.identity);
-            Projectile projectileScript = Projectile.GetComponent<Projectile>();
-            projectileScript.isEnemyBullet = isEnemy;
-            Rigidbody2D ProjectileRB = Projectile.GetComponent<Rigidbody2D>();
+            GameObject _Projectile = Instantiate(BulletPrefab, shootPos, transform.rotation);
+            Projectile projectileScript = _Projectile.GetComponent<Projectile>();
+            //projectileScript.isEnemyBullet = isEnemy;
+            Rigidbody2D ProjectileRB = _Projectile.GetComponent<Rigidbody2D>();
             ProjectileRB.AddForce(direction * Velocity, ForceMode2D.Impulse);
 
             projectileScript.Owner = gameObject;
