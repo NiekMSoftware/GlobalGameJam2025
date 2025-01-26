@@ -7,6 +7,7 @@ namespace Bubble
     {
         private void OnCollisionEnter2D(Collision2D other)
         {
+            print("Something hit trappy wappy");
             try
             {
                 other.gameObject.GetComponent<GenericAhEnemy>().Die();
