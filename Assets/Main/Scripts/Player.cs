@@ -1,9 +1,15 @@
+using Bubble.Enemies;
+using System.Collections;
 using UnityEngine;
 
 namespace Bubble
 {
     public class Player : MonoBehaviour
     {
+        public SpriteRenderer spriteRenderer;
+
+        public int DamageInTrigger;
+
         public int Health;
         public int MaxHealth;
     
@@ -13,6 +19,7 @@ namespace Bubble
         public AudioClip[] hitSounds;
         public AudioClip[] deathSounds;
 
+        private bool mayDamage = true;
 
         private void Start()
         {
@@ -27,8 +34,18 @@ namespace Bubble
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out GenericAhEnemy enemy))
+            {
+                RemoveHealth(DamageInTrigger);
+            }
+        }
+
         public void RemoveHealth(int amount)
         {
+            if (!mayDamage) return;
+
             Health -= amount;
 
             Health = Mathf.Clamp(Health, -1, MaxHealth);
@@ -45,6 +62,31 @@ namespace Bubble
             {
                 PlayRandomSoundFromList(hitSounds);
             }
+
+            StartCoroutine(nameof(BlinkPlayer));
+        }
+
+        private IEnumerator BlinkPlayer()
+        {
+            mayDamage = false;
+
+            float waitAmount = 0.2f;
+
+            spriteRenderer.enabled = false;
+
+            yield return new WaitForSeconds(waitAmount);
+
+            spriteRenderer.enabled = true;
+
+            yield return new WaitForSeconds(waitAmount);
+
+            spriteRenderer.enabled = false;
+
+            yield return new WaitForSeconds(waitAmount);
+
+            spriteRenderer.enabled = true;
+
+            mayDamage = true;
         }
 
         public void AddHealth(int amount)

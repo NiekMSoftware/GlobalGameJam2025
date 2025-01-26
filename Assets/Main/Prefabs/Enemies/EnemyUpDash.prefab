@@ -145,7 +145,7 @@ MonoBehaviour:
   ShootingCooldown: 1.2
   mayShootAtStart: 0
   isEnemy: 1
-  range: 0
+  range: 10
   target: {fileID: 0}
 --- !u!50 &1352828729471111616
 Rigidbody2D:
@@ -565,7 +565,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
