@@ -23,6 +23,11 @@ namespace Bubble.Utils
         [SerializeField] private int mediumScore;
         [SerializeField] private int lowScore;
 
+        [Header("Endless Properties")]
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private bool isEndless;
+        [SerializeField] private int wave;
+
         private bool _gameOver;
 
         private void Start()
@@ -31,6 +36,7 @@ namespace Bubble.Utils
                 FindObjectsByType<GenericAhEnemy>((FindObjectsSortMode)FindObjectsInactive.Exclude));
 
             playerShoot = FindFirstObjectByType<PlayerShoot>();
+            mainCamera = Camera.main;
         }
 
         private void Update()
@@ -48,6 +54,7 @@ namespace Bubble.Utils
                 CheckEnemies();
                 CheckCondition();
                 CheckShots();
+                IncrementAndSpawnWave();
             }
         }
 
@@ -64,7 +71,7 @@ namespace Bubble.Utils
 
         private void CheckCondition()
         {
-            if (enemies.Count == 0)
+            if (enemies.Count == 0 && !isEndless)
             {
                 starContainer.SetActive(true);
                 ShowScore();
@@ -117,6 +124,20 @@ namespace Bubble.Utils
                     t.SetActive(true);
                 }
             }
+        }
+
+        void IncrementAndSpawnWave()
+        {
+            // return if there are enemies
+            if (enemies.Count != 0) return;
+            
+            // find a random position within the main camera
+            Vector2 cameraPosition = mainCamera.transform.position;
+            
+            // add a small offset 
+            // pick a random position
+            // spawn enemies
+            // add them to the list
         }
         
         public int GetBulletsShot() => shotsFired;
