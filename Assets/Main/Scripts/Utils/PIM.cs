@@ -203,6 +203,7 @@ namespace Bubble.Utils
                 SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
+                Time.timeScale = 1;
             }
         }
     }
