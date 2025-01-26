@@ -817,7 +817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2900705086313381758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1495,8 +1495,10 @@ MonoBehaviour:
   mediumScore: 12
   lowScore: 20
   mainCamera: {fileID: 0}
+  usualOffset: 15
   <IsEndless>k__BackingField: 0
-  wave: 0
+  spawnInterval: 2.1
+  enemyPrefabs: []
 --- !u!1 &1903280806603556831
 GameObject:
   m_ObjectHideFlags: 0

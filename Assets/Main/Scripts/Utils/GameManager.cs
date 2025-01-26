@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Bubble.Enemies;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Bubble.Utils
 {
@@ -29,6 +30,8 @@ namespace Bubble.Utils
         [field: SerializeField] public bool IsEndless { get; private set; }
         [SerializeField] private float spawnInterval = 2.1f;
         [SerializeField] private List<GameObject> enemyPrefabs;
+
+        [SerializeField] private GameObject startWinButton;
 
         private bool _gameOver;
         private float _timer;
@@ -78,6 +81,7 @@ namespace Bubble.Utils
             {
                 starContainer.SetActive(true);
                 ShowScore();
+                FindAnyObjectByType<EventSystem>().SetSelectedGameObject(startWinButton);
                 _gameOver = true;
             }
         }

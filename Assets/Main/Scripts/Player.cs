@@ -1,6 +1,7 @@
 using Bubble.Enemies;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Bubble
 {
@@ -55,6 +56,7 @@ namespace Bubble
             {
                 Debug.Log("You lost!!!");
                 DeadPanel.SetActive(true);
+                FindAnyObjectByType<EventSystem>().SetSelectedGameObject(DeadPanel.transform.GetChild(1).gameObject);
                 Time.timeScale = 0;
                 PlayRandomSoundFromList(deathSounds);
             }
