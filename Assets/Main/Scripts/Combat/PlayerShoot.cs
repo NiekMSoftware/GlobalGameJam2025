@@ -14,6 +14,8 @@ namespace Bubble
         private PIM pWayerInpUWUt;
         private Vector3 lookTarget;
         private float LookInputX, LookInputY;
+        
+        public int ShotsFired { get; private set; }
 
         protected override void Update()
         {
@@ -40,11 +42,10 @@ namespace Bubble
         protected override void Shoot()
         {
             if (!MayShoot()) return;
+            ShotsFired++;
 
-                shootPos = ShootPoint.position;
-
+            shootPos = ShootPoint.position;
             base.Shoot();
-
             cameraShake.Shake(cameraShakeLength, cameraShakeIntensity);
         }
 
